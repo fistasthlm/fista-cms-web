@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Provider store={configureStore()}>
          <Router history={hashHistory}>
             <Route path="/" component={Root}>
-               
+
             </Route>
          </Router>
       </Provider>,
