@@ -1,0 +1,43 @@
+{
+  "name": "fista-cms-web",
+  "description": "desc",
+  "author": "Peter Holmberg",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fistasthlm/fista-cms-web"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "fix": "eslint --fix app/.; exit 0",
+    "postinstall": "brunch build -p"
+  },
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
+  "dependencies": {
+    "auto-reload-brunch": "^2.0.0",
+    "babel-brunch": "^6.0.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.3.13",
+    "bootstrap": "^4.0.0-alpha.5",
+    "brunch": "^2.5.3",
+    "clean-css-brunch": "^2.0.0",
+    "contentful": "^3.8.0",
+    "css-brunch": "^2.0.0",
+    "eslint-brunch": "^3.12.0",
+    "express": "^4.14.0",
+    "immutable": "^3.8.1",
+    "javascript-brunch": "^2.0.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-image-lightbox": "^3.4.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "sass-brunch": "^2.7.0",
+    "uglify-js-brunch": "~2.0.0"
+  }
+}
