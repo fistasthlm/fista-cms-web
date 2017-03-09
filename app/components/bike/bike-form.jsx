@@ -31,12 +31,12 @@ export default class BikeForm extends Component {
                             placeholder="Frame"/>
                   </div>
                   <div className="form-group">
-                     <label htmlFor="fork">Fork</label>
+                     <label htmlFor="fork">Fork / Headset</label>
                      <input type="text"
                             id="fork"
                             className="form-control"
                             onChange={(e) => this.handleTitle(e)}
-                            placeholder="Fork"/>
+                            placeholder="Fork / Headset"/>
                   </div>
                   <div className="form-group">
                      <label htmlFor="cranks">Cranks / BB</label>
