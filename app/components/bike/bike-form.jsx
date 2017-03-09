@@ -15,7 +15,7 @@ export default class BikeForm extends Component {
             <div>
                <form>
                   <div className="form-group">
-                     <label for="title">Title</label>
+                     <label htmlFor="title">Title</label>
                      <input type="text"
                             id="title"
                             className="form-control"
@@ -23,7 +23,7 @@ export default class BikeForm extends Component {
                             placeholder="Title for biek" />
                   </div>
                   <div className="form-group">
-                     <label for="frame">Frame</label>
+                     <label htmlFor="frame">Frame</label>
                      <input type="text"
                             id="frame"
                             className="form-control"
@@ -31,7 +31,7 @@ export default class BikeForm extends Component {
                             placeholder="Frame"/>
                   </div>
                   <div className="form-group">
-                     <label for="fork">Fork</label>
+                     <label htmlFor="fork">Fork</label>
                      <input type="text"
                             id="fork"
                             className="form-control"
@@ -39,7 +39,7 @@ export default class BikeForm extends Component {
                             placeholder="Fork"/>
                   </div>
                   <div className="form-group">
-                     <label for="cranks">Cranks / BB</label>
+                     <label htmlFor="cranks">Cranks / BB</label>
                      <input type="text"
                             id="cranks"
                             className="form-control"
@@ -47,7 +47,7 @@ export default class BikeForm extends Component {
                             placeholder="Cranks / BB" />
                   </div>
                   <div className="form-group">
-                     <label for="pedals">Pedals</label>
+                     <label htmlFor="pedals">Pedals</label>
                      <input type="text"
                             id="pedals"
                             className="form-control"
@@ -55,7 +55,7 @@ export default class BikeForm extends Component {
                             placeholder="Pedals" />
                   </div>
                   <div className="form-group">
-                     <label for="drivetrain">Drivetrain / Cog / Chainring / Chain</label>
+                     <label htmlFor="drivetrain">Drivetrain / Cog / Chainring / Chain</label>
                      <input type="text"
                             id="drivetrain"
                             className="form-control"
@@ -63,7 +63,7 @@ export default class BikeForm extends Component {
                             placeholder="Drivetrain / Cog / Chainring / Chain" />
                   </div>
                   <div className="form-group">
-                     <label for="handlebars">Handlebars / Stem</label>
+                     <label htmlFor="handlebars">Handlebars / Stem</label>
                      <input type="text"
                             id="handlebars"
                             className="form-control"
@@ -71,7 +71,7 @@ export default class BikeForm extends Component {
                             placeholder="Handlebars / Stem" />
                   </div>
                   <div className="form-group">
-                     <label for="saddle">Saddle / Seatpost</label>
+                     <label htmlFor="saddle">Saddle / Seatpost</label>
                      <input type="text"
                             id="saddle"
                             className="form-control"
@@ -79,7 +79,7 @@ export default class BikeForm extends Component {
                             placeholder="Saddle / Seatpost" />
                   </div>
                   <div className="form-group">
-                     <label for="frontWheel">Front Wheel / Hub / Tire</label>
+                     <label htmlFor="frontWheel">Front Wheel / Hub / Tire</label>
                      <input type="text"
                             id="frontWheel"
                             className="form-control"
@@ -87,7 +87,7 @@ export default class BikeForm extends Component {
                             placeholder="Front Wheel / Hub / Tire" />
                   </div>
                   <div className="form-group">
-                     <label for="rearWheel">Rear Wheel / Hub / Tire</label>
+                     <label htmlFor="rearWheel">Rear Wheel / Hub / Tire</label>
                      <input type="text"
                             id="rearWheel"
                             className="form-control"
@@ -95,14 +95,14 @@ export default class BikeForm extends Component {
                             placeholder="Rear Wheel / Hub / Tire" />
                   </div>
                   <div className="form-group">
-                     <label for="photos">Photos</label>
+                     <label htmlFor="photos">Photos</label>
                      <input type="file"
                             id="photos"
                             className="form-control-file"
                             onChange={(e) => this.handleTitle(e)} />
                   </div>
                   <div className="form-group">
-                     <label for="instagram">Instagram</label>
+                     <label htmlFor="instagram">Instagram</label>
                      <input type="text"
                             id="instagram"
                             className="form-control"
