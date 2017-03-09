@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
+import Nav from './nav';
 
 class Root extends Component {
    constructor(props) {
@@ -9,7 +10,11 @@ class Root extends Component {
    render() {
       return(
          <div className="content-container">
-           sum cms right
+            <Nav />
+            <div className="divider" />
+            <div className="page-content">
+               {this.props.children}
+            </div>
          </div>
       );
    }

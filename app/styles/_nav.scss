@@ -1,0 +1,126 @@
+.nav-content {
+  padding: 10px;
+
+  .left-div {
+    float: left !important;
+    display: inline-block;
+    height: 20px;
+
+
+    @include breakpoint(sm) {
+      width: 20%;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      float: left;
+    }
+
+    .cms-text {
+      display: inline-block;
+      margin-top: 15px;
+    }
+  }
+
+  .right-div {
+    float: right !important;
+    height: 20px;
+
+    @include breakpoint(sm) {
+      width: 20%;
+    }
+
+    .hamburger-button {
+      margin-top: 3px;
+
+      @include breakpoint(sm) {
+        display: none;
+      }
+
+      .toggle-button {
+        font-size: 20px;
+        line-height: 20px;
+        border: none;
+        background-color: black;
+
+        .icon-bar {
+          display: block;
+          width: 22px;
+          height: 3px;
+          margin: 5px auto;
+          background-color: white !important;
+          border-radius: 1px;
+          padding: 1px;
+        }
+      }
+
+      .toggle-button:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    position: absolute;
+    right: 15px;
+    top: 45px;
+    z-index: 10;
+    padding: 10px;
+
+    &.open {
+      display: block;
+    }
+
+    a {
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+
+  .navbar {
+    display: none;
+    overflow: auto;
+    padding-top: 5px;
+
+    @include breakpoint(sm) {
+      display: inline-block;
+    }
+  }
+
+  .menu-item {
+    margin: 5px 0;
+  }
+
+  .nav-item {
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+
+    @include breakpoint(sm) {
+      font-size: 20px;
+    }
+
+    @include breakpoint(md) {
+      padding: 10px;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+
+    &.active {
+      background-color: white;
+      color: black;
+      pointer-events: none;
+    }
+  }
+}
