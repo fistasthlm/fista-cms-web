@@ -1,5 +1,5 @@
-export function saveAuthToken(orgNumber, password) {
-   sessionStorage.setItem('authToken', btoa(orgNumber + ':' + password));
+export function saveAuthToken(username, password) {
+   sessionStorage.setItem('authToken', btoa(username + ':' + password));
 }
 
 export function saveAuthTokenFromQueryString(token) {
