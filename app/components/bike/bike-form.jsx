@@ -1,7 +1,39 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class BikeForm extends Component {
+   constructor(props) {
+      super(props);
+
+      console.log(this.props.user);
+
+      this.state = {
+         title: '',
+         frame: '',
+         fork: '',
+         cranks: '',
+         pedals: '',
+         drivetrain: '',
+         handlebars: '',
+         saddle: '',
+         frontWheel: '',
+         rearWheel: '',
+         photos: [],
+         instagram: this.props.user.get('instagram')
+      }
+   }
    handleTitle(event) {
+
+   }
+
+   submit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const data = {
+
+      };
+
+      this.props.onSubmit(data);
 
    }
 
@@ -13,12 +45,13 @@ export default class BikeForm extends Component {
                <p>fira mit ein vätska</p>
             </div>
             <div>
-               <form>
+               <form onSubmit={this.submitBike}>
                   <div className="form-group">
                      <label htmlFor="title">Title</label>
                      <input type="text"
                             id="title"
                             className="form-control"
+                            value={this.state.title}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Title for biek" />
                   </div>
@@ -27,6 +60,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="frame"
                             className="form-control"
+                            value={this.state.frame}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Frame"/>
                   </div>
@@ -35,6 +69,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="fork"
                             className="form-control"
+                            value={this.state.fork}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Fork / Headset"/>
                   </div>
@@ -43,6 +78,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="cranks"
                             className="form-control"
+                            value={this.state.cranks}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Cranks / BB" />
                   </div>
@@ -51,6 +87,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="pedals"
                             className="form-control"
+                            value={this.state.pedals}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Pedals" />
                   </div>
@@ -59,6 +96,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="drivetrain"
                             className="form-control"
+                            value={this.state.drivetrain}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Drivetrain / Cog / Chainring / Chain" />
                   </div>
@@ -67,6 +105,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="handlebars"
                             className="form-control"
+                            value={this.state.handlebars}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Handlebars / Stem" />
                   </div>
@@ -75,6 +114,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="saddle"
                             className="form-control"
+                            value={this.state.saddle}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Saddle / Seatpost" />
                   </div>
@@ -83,6 +123,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="frontWheel"
                             className="form-control"
+                            value={this.state.frontWheel}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Front Wheel / Hub / Tire" />
                   </div>
@@ -91,6 +132,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="rearWheel"
                             className="form-control"
+                            value={this.state.rearWheel}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Rear Wheel / Hub / Tire" />
                   </div>
@@ -99,6 +141,7 @@ export default class BikeForm extends Component {
                      <input type="file"
                             id="photos"
                             className="form-control-file"
+                            value={this.state.photos}
                             onChange={(e) => this.handleTitle(e)} />
                   </div>
                   <div className="form-group">
@@ -106,7 +149,7 @@ export default class BikeForm extends Component {
                      <input type="text"
                             id="instagram"
                             className="form-control"
-                            value="peteholmberg"
+                            value={this.state.instagram}
                             onChange={(e) => this.handleTitle(e)}
                             placeholder="Instagram" />
                   </div>
@@ -120,6 +163,7 @@ export default class BikeForm extends Component {
 }
 
 BikeForm.propTypes = {
-   saveBike: PropTypes.func.isRequired
+   onSubmit: PropTypes.func.isRequired,
+   user: PropTypes.object.isRequired
 };
 

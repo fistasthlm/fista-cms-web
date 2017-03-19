@@ -3,25 +3,27 @@ import { connect } from 'react-redux';
 import BikeForm from 'components/bike/bike-form';
 
 class AddNewBike extends Component {
-   saveBike() {
-
+   saveBike(data) {
+      console.log(data);
    }
 
    render() {
       return(
          <div>
-            <BikeForm saveBike={this.saveBike}/>
+            <BikeForm
+               onSubmit={this.saveBike}
+               user={this.props.userState.get('user')} />
          </div>
       )
    }
 }
 
 function propProvider(reduxState) {
-   const { appState, bikeState } = reduxState;
+   const { appState, userState } = reduxState;
 
    return {
       appState,
-      bikeState
+      userState
    };
 }
 export default connect(propProvider)(AddNewBike);
