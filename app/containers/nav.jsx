@@ -12,7 +12,11 @@ export default class Nav extends Component {
 
    render() {
       return (
-         <Navbar />
+         <Navbar onLogOut={this.props.onLogOut} />
       );
    }
+}
+
+Nav.propTypes = {
+   onLogOut: PropTypes.func.isRequired
 }

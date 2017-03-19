@@ -1,16 +1,23 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
 import Nav from './nav';
+import { logout } from 'actions';
 
 class Root extends Component {
    constructor(props) {
       super(props);
    }
 
+   onLogOut() {
+      console.log(this.props);
+      const { dispatch } = this.props;
+      dispatch(logout());
+   }
+
    render() {
       return(
          <div className="content-container">
-            <Nav />
+            <Nav onLogOut={this.onLogOut.bind(this)} />
             <div className="divider" />
             <div className="page-content">
                {this.props.children}

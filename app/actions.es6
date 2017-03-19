@@ -54,13 +54,22 @@ export function resetNetwork() {
    };
 }
 
-function authenticated(state, customer) {
+function authenticated(state, user) {
    return {
       type: AUTHENTICATION,
-      customer: customer,
+      user: user,
       state: {
          authenticated: state
       }
+   };
+}
+
+export function logout() {
+   removeAuthToken();
+   hashHistory.push('/login');
+
+   return {
+      type: RESET
    };
 }
 
@@ -71,6 +80,7 @@ export function authenticate(data, onUnauthorized) {
          .then(response => {
             saveAuthToken(data.password);
             dispatch(authenticated(true, response.data));
+            console.log(response.data);
             dispatch(resetNetwork());
             hashHistory.push('/');
          })

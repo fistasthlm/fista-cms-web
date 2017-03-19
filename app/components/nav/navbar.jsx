@@ -28,6 +28,12 @@ export default class Navbar extends Component {
       return this.state.menuToggled ? 'hamburger-menu open' : 'hamburger-menu';
    }
 
+   onLogOut(event) {
+      event.preventDefault();
+      this.props.onLogOut();
+      this.closeHamburgerMenu();
+   }
+
    render() {
       return (
          <div className="nav-content">
@@ -49,6 +55,8 @@ export default class Navbar extends Component {
                <Link activeClassName="active" className="nav-item" to="/home">Home</Link>
                <Link activeClassName="active" className="nav-item" to="/bike">Add new</Link>
                <Link activeClassName="active" className="nav-item" to="/bikes">My bikes</Link>
+               <Link activeClassName="active" className="nav-item" to="/bikes">My bikes</Link>
+               <a href="#" className="nav-items" onClick={(event) => this.onLogOut(event)}>Logga ut</a>
             </div>
             <div className={this.hamburgerMenuStyle()}>
                <div>
@@ -76,9 +84,20 @@ export default class Navbar extends Component {
                         My bikes
                      </Link>
                   </div>
+                  <div className="menu-item">
+                     <a href="#"
+                        className="nav-items"
+                        onClick={(event) => this.onLogOut(event)}>
+                           Logga ut
+                     </a>
+                  </div>
                </div>
             </div>
          </div>
       );
    }
 }
+
+Navbar.propTypes = {
+   onLogOut: PropTypes.func.isRequired
+};
