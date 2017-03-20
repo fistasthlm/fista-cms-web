@@ -11,13 +11,13 @@ import AddNewBike from 'containers/add-new-bike';
 
 function requireAuth(nextState, replace) {
    if (!getAuthToken()) {
-      replace({ pathname: '/login' })
+      replace({ pathname: '/login' });
    }
 }
 
 function noAuth(nextState, replace) {
    if (getAuthToken()) {
-      replace({ pathname: '/' })
+      replace({ pathname: '/' });
    }
 }
 

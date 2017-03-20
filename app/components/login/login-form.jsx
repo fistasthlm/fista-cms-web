@@ -1,17 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class LoginForm extends Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
 
       this.state = {
          username:'',
-         password:''
+         password:'',
+         loginFailed: false
       };
    }
 
    login(event) {
+      event.preventDefault();
 
+      const form = event.target;
+      const encoded = btoa(form.username.value + ':' + form.password.value);
+      const data = {
+         username: form.username.value,
+         password: encoded
+      };
+
+      this.props.onLogin(data, this.onLoginFailed());
+   }
+
+   onLoginFailed() {
+      this.setState({
+         loginFailed: true
+      });
    }
 
    handleUsername(event) {
@@ -29,11 +45,12 @@ export default class LoginForm extends Component {
    render() {
       return(
          <div className="login-form">
-            <form className="login-box" onSubmit={this.login}>
+            <form className="login-box" onSubmit={(event) => this.login(event)}>
                <div className="form-group">
                   <label htmlFor="username">Username</label>
                   <input type="text"
                          id="username"
+                         name="username"
                          className="form-control"
                          onChange={(e) => this.handleUsername(e)}
                          placeholder="Username" />
@@ -42,6 +59,7 @@ export default class LoginForm extends Component {
                   <label htmlFor="password">Password</label>
                   <input type="password"
                          id="password"
+                         name="password"
                          className="form-control"
                          onChange={(e) => this.handlePassword(e)}
                          placeholder="Password" />
@@ -53,3 +71,7 @@ export default class LoginForm extends Component {
       )
    }
 }
+
+LoginForm.propTypes = {
+   onLogin: PropTypes.func.isRequired
+};

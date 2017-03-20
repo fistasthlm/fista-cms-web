@@ -12,7 +12,12 @@ export default class Nav extends Component {
 
    render() {
       return (
-         <Navbar />
+         <Navbar onLogOut={this.props.onLogOut} authenticated={this.props.authenticated} />
       );
    }
 }
+
+Nav.propTypes = {
+   onLogOut: PropTypes.func.isRequired,
+   authenticated: PropTypes.bool.isRequired
+};
