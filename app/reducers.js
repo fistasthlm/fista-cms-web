@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import Immutable from 'immutable';
 import { isAuthenticated } from './utils/session';
-import { AUTHENTICATION, NETWORK, SUBSCRIPTION } from 'actions';
+import { AUTHENTICATION, NETWORK, SUBSCRIPTION, RESET } from 'actions';
 
 
 function appState(state = Immutable.Map({
@@ -16,6 +16,9 @@ function appState(state = Immutable.Map({
       case SUBSCRIPTION:
       case AUTHENTICATION:
          return state.merge(action.state);
+
+      case RESET:
+         return state.merge({authenticated: false});
 
       default:
          return state;
@@ -44,7 +47,8 @@ function bikeState(state = Immutable.Map({
 
 const rootReducer = combineReducers({
    appState,
-   userState
+   userState,
+   bikeState
 });
 
 export default rootReducer;

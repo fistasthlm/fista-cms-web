@@ -1,11 +1,21 @@
 import { hashHistory } from 'react-router';
 import { postJson } from './utils/network';
-import { saveAuthToken, updateAuthToken, removeAuthToken } from './utils/session';
+import { saveAuthToken, removeAuthToken } from './utils/session';
 
 export const RESET = 'RESET';
 export const NETWORK = 'NETWORK';
 export const SUBSCRIPTION = 'SUBSCRIPTION';
 export const AUTHENTICATION = 'AUTHENTICATION';
+
+function authenticated(state, user) {
+   return {
+      type: AUTHENTICATION,
+      user: user,
+      state: {
+         authenticated: state
+      }
+   };
+}
 
 export function networkProgress() {
    return {
@@ -54,16 +64,6 @@ export function resetNetwork() {
    };
 }
 
-function authenticated(state, user) {
-   return {
-      type: AUTHENTICATION,
-      user: user,
-      state: {
-         authenticated: state
-      }
-   };
-}
-
 export function logout() {
    removeAuthToken();
    hashHistory.push('/login');
@@ -80,7 +80,6 @@ export function authenticate(data, onUnauthorized) {
          .then(response => {
             saveAuthToken(data.password);
             dispatch(authenticated(true, response.data));
-            console.log(response.data);
             dispatch(resetNetwork());
             hashHistory.push('/');
          })

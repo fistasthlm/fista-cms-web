@@ -34,6 +34,10 @@
     .hamburger-button {
       margin-top: 3px;
 
+      &.hidden {
+        display: none;
+      }
+
       @include breakpoint(sm) {
         display: none;
       }
@@ -91,6 +95,10 @@
 
     @include breakpoint(sm) {
       display: inline-block;
+
+      &.hidden {
+        display: none;
+      }
     }
   }
 

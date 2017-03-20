@@ -14,12 +14,9 @@ export default class LoginForm extends Component {
    login(event) {
       event.preventDefault();
 
-      // pete:lololomgwtf
-
-
-      let form = event.target;
-      let encoded = btoa(form.username.value + ':' + form.password.value);
-      let data = {
+      const form = event.target;
+      const encoded = btoa(form.username.value + ':' + form.password.value);
+      const data = {
          username: form.username.value,
          password: encoded
       };
