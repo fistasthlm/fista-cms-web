@@ -9,7 +9,6 @@ class Root extends Component {
    }
 
    onLogOut() {
-      console.log(this.props);
       const { dispatch } = this.props;
       dispatch(logout());
    }
@@ -17,7 +16,7 @@ class Root extends Component {
    render() {
       return(
          <div className="content-container">
-            <Nav onLogOut={this.onLogOut.bind(this)} />
+            <Nav onLogOut={this.onLogOut.bind(this)} authenticated={this.props.appState.get('authenticated')} />
             <div className="divider" />
             <div className="page-content">
                {this.props.children}

@@ -80,7 +80,6 @@ export function authenticate(data, onUnauthorized) {
          .then(response => {
             saveAuthToken(data.password);
             dispatch(authenticated(true, response.data));
-            console.log(response.data);
             dispatch(resetNetwork());
             hashHistory.push('/');
          })
