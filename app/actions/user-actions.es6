@@ -20,7 +20,7 @@ export function loadUser() {
             dispatch(userLoaded(response.data));
          })
          .catch(error => {
-            console.log('Something when wrong', error);
+            console.log('Something went wrong', error);
          })
    }
 }

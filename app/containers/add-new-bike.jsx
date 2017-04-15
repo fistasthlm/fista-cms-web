@@ -1,10 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BikeForm from 'components/bike/bike-form';
+import { addBike } from 'actions/bike-actions';
 
 class AddNewBike extends Component {
+   constructor(props) {
+      super(props);
+   }
+
    saveBike(data) {
-      console.log(data);
+      this.props.dispatch(addBike(data));
    }
 
    render() {
@@ -14,7 +19,7 @@ class AddNewBike extends Component {
             {
                user &&
                   <BikeForm
-                     onSubmit={this.saveBike}
+                     onSubmit={this.saveBike.bind(this)}
                      user={user} />
             }
          </div>
@@ -22,7 +27,7 @@ class AddNewBike extends Component {
    }
 }
 
-function propProvider(reduxState) {
+function propProvider(reduxState, props) {
    const { appState, userState } = reduxState;
 
    return {

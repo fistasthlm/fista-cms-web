@@ -14,7 +14,15 @@ class Root extends Component {
       dispatch(logout());
    }
 
-   componentWillUpdate() {
+   componentWillMount() {
+      this.loadUser();
+   }
+
+   componentWillReceiveProps(nextProps) {
+      this.loadUser();
+   }
+
+   loadUser() {
       if (this.props.userState.isEmpty()) {
          this.props.dispatch(loadUser());
       }
