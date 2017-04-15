@@ -4,8 +4,6 @@ export default class BikeForm extends Component {
    constructor(props) {
       super(props);
 
-      console.log(this.props.user);
-
       this.state = {
          title: '',
          frame: '',

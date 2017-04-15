@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -12,11 +12,11 @@ class Home extends Component {
 }
 
 function propProvider(reduxState) {
-   const { appState, bikeState } = reduxState;
+   const { appState, userState } = reduxState;
 
    return {
       appState,
-      bikeState
+      userState
    };
 }
 export default connect(propProvider)(Home);

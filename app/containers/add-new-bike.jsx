@@ -8,11 +8,15 @@ class AddNewBike extends Component {
    }
 
    render() {
+      const user = this.props.userState.get('user');
       return(
          <div>
-            <BikeForm
-               onSubmit={this.saveBike}
-               user={this.props.userState.get('user')} />
+            {
+               user &&
+                  <BikeForm
+                     onSubmit={this.saveBike}
+                     user={user} />
+            }
          </div>
       )
    }
