@@ -27,15 +27,35 @@ export default class BikeForm extends Component {
    }
 
    handlePhotosChange(event) {
-      this.setState({
-         photos: event.target.files
-      });
+      const files = event.target.files;
+      if(files && files.length > 0) {
+         const images = [];
+
+         for (let i = 0; i < files.length; i++) {
+            images.push(files[i]);
+         }
+
+         this.setState({
+            photos: images
+         });
+
+         Array.from(files).forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+               const id = `photo-${index}`;
+               document.getElementById(id)
+                  .setAttribute('src', e.target.result);
+            };
+
+            reader.readAsDataURL(file);
+         })
+      }
+
+
    }
 
    submit(event) {
       event.preventDefault();
-
-      const form = event.target;
       const data = this.state;
 
       this.props.onSubmit(data);
@@ -151,10 +171,27 @@ export default class BikeForm extends Component {
                             onChange={(e) => this.handleTextInputChange(e)}
                             placeholder="Rear Wheel / Hub / Tire" />
                   </div>
+                  {
+                     this.state.photos.length > 0 &&
+                        <div className="form-group">
+                           <label htmlFor="photoPreview">Preview</label>
+                           <div id="photoPreview">
+                           {
+                              this.state.photos.map((image, index) => {
+                                 return (
+                                       <img id={'photo-'+index} src="#" key={index} className="preview-image" />
+                                 )
+                              })
+                           }
+                           </div>
+                        </div>
+                  }
                   <div className="form-group">
                      <label htmlFor="photos">Photos</label>
                      <input type="file"
                             id="photos"
+                            accept="image/*"
+                            multiple
                             className="form-control-file"
                             onChange={(e) => this.handlePhotosChange(e)} />
                   </div>

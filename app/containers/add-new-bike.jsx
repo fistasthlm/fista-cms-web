@@ -9,6 +9,7 @@ class AddNewBike extends Component {
    }
 
    saveBike(data) {
+      console.log(data);
       this.props.dispatch(addBike(data));
    }
 
