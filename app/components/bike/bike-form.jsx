@@ -28,30 +28,58 @@ export default class BikeForm extends Component {
 
    handlePhotosChange(event) {
       const files = event.target.files;
+      const images = [];
+
+      for (let i = 0; i < files.length; i++) {
+         images.push(files[i]);
+      }
+
+      this.setState({
+         photos: images
+      });
+
       if(files && files.length > 0) {
-         const images = [];
-
-         for (let i = 0; i < files.length; i++) {
-            images.push(files[i]);
-         }
-
-         this.setState({
-            photos: images
-         });
-
          Array.from(files).forEach((file, index) => {
             const reader = new FileReader();
             reader.onload = function (e) {
                const id = `photo-${index}`;
+               images.push({
+                  title: file.name,
+                  data: e.target.result
+               });
                document.getElementById(id)
                   .setAttribute('src', e.target.result);
             };
 
             reader.readAsDataURL(file);
+         });
+
+         this.setState({
+            photos: images
+         });
+      }
+   }
+
+   getPhotosForUpload() {
+      const photos = this.state.photos;
+      const photosForUpload = [];
+
+      if (photos.size > 0) {
+         photos.map(file => {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+               photosForUpload.push({
+                     title: file.name,
+                     data: e.target.result
+                  }
+               )
+            };
+            reader.readAsDataURL(file);
          })
       }
-
-
+      console.log(photosForUpload);
+      return photosForUpload;
    }
 
    submit(event) {
@@ -59,7 +87,6 @@ export default class BikeForm extends Component {
       const data = this.state;
 
       this.props.onSubmit(data);
-
    }
 
    render() {
