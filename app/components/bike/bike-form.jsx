@@ -4,7 +4,11 @@ export default class BikeForm extends Component {
    constructor(props) {
       super(props);
 
-      this.state = {
+      this.state = this.initialState();
+   }
+
+   initialState() {
+      return {
          title: '',
          frame: '',
          fork: '',
@@ -19,6 +23,7 @@ export default class BikeForm extends Component {
          instagram: this.props.user.get('instagram')
       }
    }
+
    handleTextInputChange(event) {
       const name = event.target.name;
       this.setState({
@@ -87,6 +92,7 @@ export default class BikeForm extends Component {
       const data = this.state;
 
       this.props.onSubmit(data);
+      this.setState(this.initialState);
    }
 
    render() {
