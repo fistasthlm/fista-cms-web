@@ -1,5 +1,5 @@
-export function saveAuthToken(username, password) {
-   sessionStorage.setItem('authToken', btoa(username + ':' + password));
+export function saveAuthToken(encoded) {
+   sessionStorage.setItem('authToken', encoded);
 }
 
 export function saveAuthTokenFromQueryString(token) {

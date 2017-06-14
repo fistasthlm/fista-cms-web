@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import Immutable from 'immutable';
 import { isAuthenticated } from './utils/session';
 import { AUTHENTICATION, NETWORK, SUBSCRIPTION, RESET } from 'actions';
+import { USER_LOADED } from 'actions/user-actions';
 
 
 function appState(state = Immutable.Map({
@@ -15,10 +16,10 @@ function appState(state = Immutable.Map({
       case NETWORK:
       case SUBSCRIPTION:
       case AUTHENTICATION:
-         return state.merge(action.state);
+         return state.merge({ authenticated: true });
 
       case RESET:
-         return state.merge({authenticated: false});
+         return state.merge({ authenticated: false });
 
       default:
          return state;
@@ -26,11 +27,11 @@ function appState(state = Immutable.Map({
 }
 
 function userState (state = Immutable.Map({
-   user: {}
 }), action = null) {
    switch (action.type) {
       case AUTHENTICATION:
-         return state.merge(action.user);
+      case USER_LOADED:
+         return state.merge({ user: action.user });
       default:
          return state;
    }
