@@ -32,7 +32,6 @@ function userState (state = Immutable.Map({
    switch (action.type) {
       case AUTHENTICATION:
       case USER_LOADED:
-         console.log('userReducer', action.user);
          return state.merge({ user: action.user });
       default:
          return state;
@@ -40,7 +39,6 @@ function userState (state = Immutable.Map({
 }
 
 function bikeState(state = Immutable.Map({
-   bikes: []
 }), action = null) {
    switch (action.type) {
       case BIKES_LOADED:

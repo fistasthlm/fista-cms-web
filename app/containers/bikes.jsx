@@ -18,17 +18,20 @@ class Bikes extends Component {
       const { dispatch, bikeState, userState } = this.props;
       const user = userState.get('user');
       const bikes = bikeState.get('bikes');
-      console.log(user);
-      console.log(bikes);
-      if (user && bikes.length === 0) {
+      if (user && !bikes) {
          dispatch(loadBikes(user.get('instagram')));
       }
    }
 
    render() {
+      const bikes = this.props.bikeState.get('bikes');
+
       return (
          <div>
-            <BikeGrid />
+            {
+               bikes &&
+                 <BikeGrid bikes={bikes} />
+            }
          </div>
       )
    }
