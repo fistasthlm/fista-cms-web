@@ -19,7 +19,9 @@ class Root extends Component {
    }
 
    componentWillReceiveProps(nextProps) {
-      this.loadUser();
+      if (this.props !== nextProps) {
+         this.loadUser();
+      }
    }
 
    loadUser() {
