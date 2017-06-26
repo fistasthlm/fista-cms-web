@@ -20,7 +20,8 @@ export default class BikeForm extends Component {
          frontWheel: '',
          rearWheel: '',
          photos: [],
-         instagram: this.props.user.get('instagram')
+         instagram: this.props.user.get('instagram'),
+         numberOfImages: 0
       }
    }
 
@@ -33,16 +34,13 @@ export default class BikeForm extends Component {
 
    handlePhotosChange(event) {
       const files = event.target.files;
-      const images = [];
-
-      for (let i = 0; i < files.length; i++) {
-         images.push(files[i]);
-      }
-
       this.setState({
-         photos: images
-      });
+         numberOfImages: files.length
+      }, this.handleImages(files));
+   }
 
+   handleImages(files) {
+      const images = [];
       if(files && files.length > 0) {
          Array.from(files).forEach((file, index) => {
             const reader = new FileReader();
@@ -83,7 +81,6 @@ export default class BikeForm extends Component {
             reader.readAsDataURL(file);
          })
       }
-      console.log(photosForUpload);
       return photosForUpload;
    }
 
@@ -93,6 +90,16 @@ export default class BikeForm extends Component {
 
       this.props.onSubmit(data);
       this.setState(this.initialState);
+   }
+
+   renderImagePlaceHolders() {
+      let elements = [];
+      for(let i = 0; i < this.state.numberOfImages; i++) {
+         elements.push(
+            <img id={'photo-'+i} src="#" key={i} className="preview-image" />
+         )
+      }
+      return elements;
    }
 
    render() {
@@ -205,16 +212,12 @@ export default class BikeForm extends Component {
                             placeholder="Rear Wheel / Hub / Tire" />
                   </div>
                   {
-                     this.state.photos.length > 0 &&
+                     this.state.numberOfImages > 0 &&
                         <div className="form-group">
                            <label htmlFor="photoPreview">Preview</label>
                            <div id="photoPreview">
                            {
-                              this.state.photos.map((image, index) => {
-                                 return (
-                                       <img id={'photo-'+index} src="#" key={index} className="preview-image" />
-                                 )
-                              })
+                              this.renderImagePlaceHolders()
                            }
                            </div>
                         </div>
