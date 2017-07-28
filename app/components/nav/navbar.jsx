@@ -59,7 +59,6 @@ export default class Navbar extends Component {
                <Link activeClassName="active" className="nav-item" to="/home">Home</Link>
                <Link activeClassName="active" className="nav-item" to="/bike">Add new</Link>
                <Link activeClassName="active" className="nav-item" to="/bikes">My bikes</Link>
-               <Link activeClassName="active" className="nav-item" to="/bikes">My bikes</Link>
                <a href="#" className="nav-items" onClick={(event) => this.onLogOut(event)}>Logga ut</a>
             </div>
             <div className={this.hamburgerMenuStyle()}>
