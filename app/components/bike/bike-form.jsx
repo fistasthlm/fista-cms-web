@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import update from 'react-addons-update';
+import ReactFilestack from 'filestack-react';
 
 export default class BikeForm extends Component {
    constructor(props) {
@@ -19,8 +21,8 @@ export default class BikeForm extends Component {
          saddle: '',
          frontWheel: '',
          rearWheel: '',
-         photos: [],
-         instagram: this.props.user.get('instagram')
+         images: [],
+         instagram: this.props.user.get('instagram'),
       }
    }
 
@@ -31,71 +33,37 @@ export default class BikeForm extends Component {
       });
    }
 
-   handlePhotosChange(event) {
-      const files = event.target.files;
-      const images = [];
-
-      for (let i = 0; i < files.length; i++) {
-         images.push(files[i]);
-      }
-
-      this.setState({
-         photos: images
-      });
-
-      if(files && files.length > 0) {
-         Array.from(files).forEach((file, index) => {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-               const id = `photo-${index}`;
-               images.push({
-                  title: file.name,
-                  data: e.target.result
-               });
-               document.getElementById(id)
-                  .setAttribute('src', e.target.result);
-            };
-
-            reader.readAsDataURL(file);
+   handleUploadImageResult(result) {
+      if (result.filesUploaded.length > 0) {
+         const newImages = result.filesUploaded.map(file => {
+            return {
+               url: file.url,
+               name: file.filename
+            }
          });
-
-         this.setState({
-            photos: images
+         const newImagesState = update(this.state.images, {
+            $push: newImages
          });
+         this.setState({ images: newImagesState });
       }
-   }
-
-   getPhotosForUpload() {
-      const photos = this.state.photos;
-      const photosForUpload = [];
-
-      if (photos.size > 0) {
-         photos.map(file => {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-               photosForUpload.push({
-                     title: file.name,
-                     data: e.target.result
-                  }
-               )
-            };
-            reader.readAsDataURL(file);
-         })
-      }
-      console.log(photosForUpload);
-      return photosForUpload;
    }
 
    submit(event) {
       event.preventDefault();
-      const data = this.state;
-
-      this.props.onSubmit(data);
+      this.props.onSubmit(this.state);
       this.setState(this.initialState);
    }
 
    render() {
+      const options = {
+         accept: 'image/*',
+         maxFiles: 5,
+         storeTo: {
+            location: 's3',
+         },
+         fromSources: ['local_file_system', 'instagram']
+      };
+
       return(
          <div className="bike-form">
             <div>
@@ -205,15 +173,18 @@ export default class BikeForm extends Component {
                             placeholder="Rear Wheel / Hub / Tire" />
                   </div>
                   {
-                     this.state.photos.length > 0 &&
+                     this.state.images.length > 0 &&
                         <div className="form-group">
                            <label htmlFor="photoPreview">Preview</label>
                            <div id="photoPreview">
                            {
-                              this.state.photos.map((image, index) => {
+                              this.state.images.map(image => {
                                  return (
-                                       <img id={'photo-'+index} src="#" key={index} className="preview-image" />
-                                 )
+                                    <img src={image.url}
+                                         alt={image.name}
+                                         key={image.name}
+                                         className="preview-image" />
+                                 );
                               })
                            }
                            </div>
@@ -221,12 +192,13 @@ export default class BikeForm extends Component {
                   }
                   <div className="form-group">
                      <label htmlFor="photos">Photos</label>
-                     <input type="file"
-                            id="photos"
-                            accept="image/*"
-                            multiple
-                            className="form-control-file"
-                            onChange={(e) => this.handlePhotosChange(e)} />
+                     <ReactFilestack
+                        apikey={'A3BcPUqFURlSDHWjF3UG1z'}
+                        buttonText="Add images"
+                        buttonClass="file-input-btn"
+                        options={options}
+                        onSuccess={this.handleUploadImageResult.bind(this)}
+                     />
                   </div>
                   <div className="form-group">
                      <label htmlFor="instagram">Instagram</label>

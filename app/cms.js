@@ -8,6 +8,7 @@ import Root from 'containers/root';
 import Home from 'containers/home';
 import Login from 'containers/login';
 import AddNewBike from 'containers/add-new-bike';
+import Bikes from 'containers/bikes';
 
 function requireAuth(nextState, replace) {
    if (!getAuthToken()) {
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                <IndexRedirect to="/home" />
                <Route path="/home" component={Home} onEnter={requireAuth} />
                <Route path="/bike" component={AddNewBike} onEnter={requireAuth} />
+               <Route path="/bikes" component={Bikes} onEnter={requireAuth} />
                <Route path="/login" component={Login} onEnter={noAuth} />
             </Route>
          </Router>
