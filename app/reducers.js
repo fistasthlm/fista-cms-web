@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import { isAuthenticated } from './utils/session';
 import { AUTHENTICATION, NETWORK, SUBSCRIPTION, RESET } from 'actions';
 import { USER_LOADED } from 'actions/user-actions';
-import { BIKES_LOADED } from 'actions/bike-actions';
+import * as BikeActions from 'actions/bike-actions';
 
 
 function appState(state = Immutable.Map({
@@ -41,8 +41,12 @@ function userState (state = Immutable.Map({
 function bikeState(state = Immutable.Map({
 }), action = null) {
    switch (action.type) {
-      case BIKES_LOADED:
+      case BikeActions.BIKES_LOADED:
          return state.merge({ bikes: action.bikes});
+      case BikeActions.BIKE_LOADED:
+         return state.merge({ bike: action.bike});
+      case BikeActions.CLEAR_BIKE:
+         return state.merge({ bike: {} });
       default:
          return state;
    }
