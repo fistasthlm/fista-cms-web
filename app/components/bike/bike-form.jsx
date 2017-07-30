@@ -194,10 +194,11 @@ export default class BikeForm extends Component {
                      <label htmlFor="photos">Photos</label>
                      <ReactFilestack
                         apikey={'A3BcPUqFURlSDHWjF3UG1z'}
-                        buttonText="Click me"
-                        buttonClass="form-control-file"
+                        buttonText="Add images"
+                        buttonClass="file-input-btn"
                         options={options}
-                        onSuccess={this.handleUploadImageResult.bind(this)} />
+                        onSuccess={this.handleUploadImageResult.bind(this)}
+                     />
                   </div>
                   <div className="form-group">
                      <label htmlFor="instagram">Instagram</label>
