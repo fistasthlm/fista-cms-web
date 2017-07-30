@@ -1,4 +1,4 @@
-import React, {PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import Image from '../../components/viewHelper/image';
 import Lightbox from 'react-image-lightbox';
 
@@ -42,7 +42,7 @@ export default class BikePhotos extends Component {
       const { photoIndex } = this.state;
 
       this.setState({
-         photoIndex: (photoIndex + images.length - 1) % images.length,
+         photoIndex: (photoIndex + images.size - 1) % images.size,
       });
    }
 
@@ -51,7 +51,7 @@ export default class BikePhotos extends Component {
       const { photoIndex } = this.state;
 
       this.setState({
-         photoIndex: (photoIndex + 1) % images.length,
+         photoIndex: (photoIndex + 1) % images.size,
       });
    }
 
@@ -69,24 +69,22 @@ export default class BikePhotos extends Component {
                             height="800"
                             resize={true} />
                      {
-                        images.length > 1 &&
+                        images.size > 1 &&
                            this.renderThumbnails(images)
                      }
                   </div>
 
             }
             {
-               /*
                isOpen &&
                   <Lightbox mainSrc={images.get(photoIndex).get('url')}
-                            nextSrc={images.get(photoIndex % images.size).get('url')}
-                            prevSrc={images.get((photoIndex + images.size - 1) % images.length).get('url')}
+                            nextSrc={images.get(photoIndex + 1 % images.size).get('url')}
+                            prevSrc={images.get((photoIndex + images.size) % images.size).get('url')}
                             onMovePrevRequest={this.previousImage.bind(this)}
                             onMoveNextRequest={this.nextImage.bind(this)}
                             onCloseRequest={this.toggleLightBox.bind(this)}
                             discourageDownloads={true}
                             enableZoom={false} />
-               */
             }
          </div>
       );

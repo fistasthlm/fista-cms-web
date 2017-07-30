@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loader from '../components/viewHelper/loader';
 import BikeInfo from '../components/bikes/bike-info';
