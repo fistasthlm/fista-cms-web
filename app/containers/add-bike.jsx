@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BikeForm from 'components/bike/bike-form';
+import BikeForm from '../components/bike/bike-form';
 import { addBike } from 'actions/bike-actions';
 
-class AddNewBike extends Component {
+class AddBike extends Component {
    constructor(props) {
       super(props);
    }
 
    saveBike(data) {
-      console.log(data);
       this.props.dispatch(addBike(data));
    }
 
@@ -36,5 +35,4 @@ function propProvider(reduxState, props) {
       userState
    };
 }
-export default connect(propProvider)(AddNewBike);
-
+export default connect(propProvider)(AddBike);

@@ -4,6 +4,7 @@ import { networkProgress } from 'actions';
 export const BIKE_ADDED = 'BIKE_ADDED';
 export const BIKES_LOADED = 'BIKES_LOADED';
 export const BIKE_LOADED = 'BIKE_LOADED';
+export const BIKE_UPDATED = 'BIKE_UPDATED';
 export const CLEAR_BIKE = 'CLEAR_BIKE';
 
 function bikeAdded(data) {
@@ -24,6 +25,13 @@ function bikeLoaded(data) {
    return {
       bike: data,
       type: BIKE_LOADED
+   }
+}
+
+function bikeUpdated(data) {
+   return {
+      bike: data,
+      type: BIKE_UPDATED
    }
 }
 
@@ -59,6 +67,19 @@ export function loadBike(id) {
       return getJson('/bike/' + id)
          .then(response => {
             dispatch(bikeLoaded(response.data));
+         })
+         .catch(error => {
+            console.log('Something went wrong', error);
+         })
+   }
+}
+
+export function updateBike() {
+   return dispatch => {
+      dispatch(networkProgress());
+      return putJson('/bike/', data)
+         .then(response => {
+            dispatch(bikeUpdated(response.data));
          })
          .catch(error => {
             console.log('Something went wrong', error);

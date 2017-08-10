@@ -10,7 +10,7 @@ import Login from 'containers/login';
 import AddBike from 'containers/add-bike';
 import Bikes from 'containers/bikes';
 import Bike from 'containers/bike';
-
+import EditBike from 'containers/edit-bike';
 function requireAuth(nextState, replace) {
    if (!getAuthToken()) {
       replace({ pathname: '/login' });
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                <Route path="/add" component={AddBike} onEnter={requireAuth} />
                <Route path="/bikes" component={Bikes} onEnter={requireAuth} />
                <Route path="/bike/:id" component={Bike} onEnter={requireAuth} />
+               <Route path="/edit/:id" component={EditBike} onEnter={requireAuth} />
                <Route path="/login" component={Login} onEnter={noAuth} />
             </Route>
          </Router>
