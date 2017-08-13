@@ -18,9 +18,14 @@ class AddBike extends Component {
          <div>
             {
                user &&
+               <div>
+                  <h3>New biek day</h3>
+                  <p>fira mit ein vätska</p>
                   <BikeForm
                      onSubmit={this.saveBike.bind(this)}
                      user={user} />
+               </div>
+
             }
          </div>
       )

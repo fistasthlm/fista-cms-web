@@ -1,4 +1,4 @@
-import { postJson, getJson } from 'utils/network';
+import { postJson, getJson, putJson } from 'utils/network';
 import { networkProgress } from 'actions';
 
 export const BIKE_ADDED = 'BIKE_ADDED';
@@ -74,10 +74,10 @@ export function loadBike(id) {
    }
 }
 
-export function updateBike() {
+export function updateBike(data) {
    return dispatch => {
       dispatch(networkProgress());
-      return putJson('/bike/', data)
+      return putJson(`/bike/${data.id}`, data)
          .then(response => {
             dispatch(bikeUpdated(response.data));
          })
