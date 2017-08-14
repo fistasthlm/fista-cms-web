@@ -1,28 +1,45 @@
 import React, { Component, PropTypes } from 'react';
+import { hashHistory } from 'react-router';
 import update from 'react-addons-update';
 import ReactFilestack from 'filestack-react';
 
 export default class BikeForm extends Component {
    constructor(props) {
       super(props);
+      const bike = this.props.bike;
 
-      this.state = this.initialState();
-   }
-
-   initialState() {
-      return {
-         title: '',
-         frame: '',
-         fork: '',
-         cranks: '',
-         pedals: '',
-         drivetrain: '',
-         handlebars: '',
-         saddle: '',
-         frontWheel: '',
-         rearWheel: '',
-         images: [],
-         instagram: this.props.user.get('instagram'),
+      if (bike) {
+         this.state = {
+            id: bike.get('_id'),
+            title: bike.get('title'),
+            frame: bike.get('frame'),
+            fork: bike.get('fork'),
+            cranks: bike.get('cranks'),
+            pedals: bike.get('pedals'),
+            drivetrain: bike.get('drivetrain'),
+            handlebars: bike.get('handlebars'),
+            saddle: bike.get('saddle'),
+            frontWheel: bike.get('frontWheel'),
+            rearWheel: bike.get('rearWheel'),
+            images: bike.get('images') ? bike.get('images').toJS() : [],
+            instagram: this.props.user.get('instagram')
+         }
+      }
+      else {
+         this.state = {
+            title: '',
+            frame: '',
+            fork: '',
+            cranks: '',
+            pedals: '',
+            drivetrain: '',
+            handlebars: '',
+            saddle: '',
+            frontWheel: '',
+            rearWheel: '',
+            images: [],
+            instagram: this.props.user.get('instagram'),
+         }
       }
    }
 
@@ -51,7 +68,7 @@ export default class BikeForm extends Component {
    submit(event) {
       event.preventDefault();
       this.props.onSubmit(this.state);
-      this.setState(this.initialState);
+      hashHistory.push('/bikes');
    }
 
    render() {
@@ -66,10 +83,6 @@ export default class BikeForm extends Component {
 
       return(
          <div className="bike-form">
-            <div>
-               <h3>New biek day</h3>
-               <p>fira mit ein vätska</p>
-            </div>
             <div>
                <form onSubmit={(e) => this.submit(e)}>
                   <div className="form-group">
@@ -221,6 +234,7 @@ export default class BikeForm extends Component {
 
 BikeForm.propTypes = {
    onSubmit: PropTypes.func.isRequired,
-   user: PropTypes.object.isRequired
+   user: PropTypes.object.isRequired,
+   bike: PropTypes.object
 };
 

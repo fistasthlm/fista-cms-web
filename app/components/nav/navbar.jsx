@@ -57,7 +57,7 @@ export default class Navbar extends Component {
             </div>
             <div className={this.navbarStyle()}>
                <Link activeClassName="active" className="nav-item" to="/home">Home</Link>
-               <Link activeClassName="active" className="nav-item" to="/bike">Add new</Link>
+               <Link activeClassName="active" className="nav-item" to="/add">Add new</Link>
                <Link activeClassName="active" className="nav-item" to="/bikes">My bikes</Link>
                <a href="#" className="nav-items" onClick={(event) => this.onLogOut(event)}>Logga ut</a>
             </div>
@@ -75,7 +75,7 @@ export default class Navbar extends Component {
                      <Link activeClassName="active"
                            className="nav-item"
                            onClick={this.toggleMenu.bind(this)}
-                           to="/bike">
+                           to="/add">
                         Add new
                      </Link>
                   </div>
