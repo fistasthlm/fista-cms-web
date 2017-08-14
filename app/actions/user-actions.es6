@@ -1,4 +1,3 @@
-import { getAuthToken } from 'utils/session';
 import { getJson } from 'utils/network';
 import { networkProgress } from 'actions';
 

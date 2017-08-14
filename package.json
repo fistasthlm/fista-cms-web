@@ -22,7 +22,7 @@
     "babel-brunch": "^6.0.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.3.13",
-    "bootstrap": "^4.0.0-alpha.5",
+    "bootstrap": "^4.0.0-beta",
     "brunch": "^2.5.3",
     "clean-css-brunch": "^2.0.0",
     "css-brunch": "^2.0.0",
