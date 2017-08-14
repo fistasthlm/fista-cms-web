@@ -16,6 +16,7 @@ function getJsonHeaders() {
       headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
+         'x-fista-authenticate': getAuthToken()
       }
    }
 }

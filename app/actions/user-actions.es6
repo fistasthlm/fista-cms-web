@@ -12,10 +12,9 @@ function userLoaded(data) {
 }
 
 export function loadUser() {
-   const token = getAuthToken();
    return dispatch => {
       dispatch(networkProgress());
-      return getJson('/user/' + token)
+      return getJson('/user')
          .then(response => {
             dispatch(userLoaded(response.data));
          })

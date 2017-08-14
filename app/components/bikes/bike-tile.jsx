@@ -6,14 +6,19 @@ import Image from 'components/viewHelper/image';
 export default class BikeTile extends Component {
    render() {
       const { bike } = this.props;
-      const previewImage = bike.get('images').first().toJS();
+      const hasImage = bike.get('images').first();
+      const previewImage = hasImage.toJS();
       return (
          <div className="bike-tile col-6 col-sm-4 col-md-4 col-lg-4">
             <Link to={'/bike/' + bike.get('_id')}>
                <div className="bike-title ellipsis">
                   {bike.get('title')}
                </div>
-               <Image className="bike-image" id="previewImage" url={previewImage.url} />
+               {
+                  hasImage &&
+                     <Image className="bike-image" id="previewImage" url={previewImage.url} />
+               }
+
             </Link>
          </div>
       )
