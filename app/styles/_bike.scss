@@ -2,7 +2,12 @@
   padding: 10px 5px;
 }
 
-.preview-image {
+.fista-disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+  .preview-image {
   width: 100px;
   height: auto;
   margin: 5px;

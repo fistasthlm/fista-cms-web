@@ -71,6 +71,10 @@ export default class BikeForm extends Component {
       hashHistory.push('/bikes');
    }
 
+   formValid() {
+      return this.state.title;
+   }
+
    render() {
       const options = {
          accept: 'image/*',
@@ -80,6 +84,8 @@ export default class BikeForm extends Component {
          },
          fromSources: ['local_file_system', 'instagram']
       };
+
+      const submitClass = this.formValid() ? "btn btn-success" : "btn btn-danger fista-disabled";
 
       return(
          <div className="bike-form">
@@ -224,7 +230,7 @@ export default class BikeForm extends Component {
                             placeholder="Instagram" />
                   </div>
 
-                  <button type="submit" className="btn btn-success">Submit</button>
+                  <button type="submit" className={submitClass}>Submit</button>
                </form>
             </div>
          </div>
