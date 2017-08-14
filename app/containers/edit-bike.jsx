@@ -26,7 +26,7 @@ class EditBike extends Component {
       return (
          <div>
             {
-               user && bike ?
+               user && bike && bike.size > 0 ?
                   <div>
                      <h1>Edit {bike.get('title')}</h1>
                      <BikeForm onSubmit={this.saveBike.bind(this)} user={user} bike={bike} />

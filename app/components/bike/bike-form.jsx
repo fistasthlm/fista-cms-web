@@ -6,8 +6,8 @@ import ReactFilestack from 'filestack-react';
 export default class BikeForm extends Component {
    constructor(props) {
       super(props);
-
       const bike = this.props.bike;
+
       if (bike) {
          this.state = {
             id: bike.get('_id'),
