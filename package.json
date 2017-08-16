@@ -13,8 +13,8 @@
     "postinstall": "brunch build -p"
   },
   "engines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "8.x",
+    "npm": "5.x"
   },
   "dependencies": {
     "auto-reload-brunch": "^2.0.0",
