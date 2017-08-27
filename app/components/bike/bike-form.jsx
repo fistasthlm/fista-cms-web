@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
 import update from 'react-addons-update';
 import ReactFilestack from 'filestack-react';

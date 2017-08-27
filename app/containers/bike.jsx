@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Loader from '../components/viewHelper/loader';
 import BikeInfo from '../components/bikes/bike-info';
 import { loadBike, clearBike } from '../actions/bike-actions';
 
-class Bike extends Component {
+class Bike extends PureComponent {
    componentDidMount() {
       this.loadBike();
    }

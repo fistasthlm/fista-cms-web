@@ -1,25 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { List } from 'immutable';
 import BikeTile from 'components/bikes/bike-tile';
 
-export default class BikeGrid extends Component {
-   render() {
-      const { bikes } = this.props;
-
-      return (
-         <div>
-            <h1>My bikes</h1>
-            <div className="bike-grid row gutter-0">
-               {
-                  bikes && bikes.size > 0 &&
-                     bikes.map((bike, index) => {
-                        return <BikeTile bike={bike} key={index} />
-                     })
-               }
-            </div>
+export default function BikeGrid ({ bikes }) {
+   return (
+      <div>
+         <h1>My bikes</h1>
+         <div className="bike-grid row gutter-0">
+            {
+               bikes && bikes.size > 0 &&
+                  bikes.map((bike, index) => {
+                     return <BikeTile bike={bike} key={index} />
+                  })
+            }
          </div>
-      );
-   }
+      </div>
+   );
 }
 
 BikeGrid.propTypes = {

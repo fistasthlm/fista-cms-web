@@ -1,15 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Image extends Component {
-   render() {
-      const { url, className, width, height, resize, caption } = this.props;
+export default function Image({url, caption, className, width, height, resize }) {
+   const src = resize ? url + '?w=' + width + '&h=' + height :  url;
 
-      const src = resize ? url + '?w=' + width + '&h=' + height :  url;
-
-      return(
-         <img className={className} src={src} alt={caption || ''} />
-      );
-   }
+   return(
+      <img className={className} src={src} alt={caption || ''} />
+   );
 }
 
 Image.propTypes = {

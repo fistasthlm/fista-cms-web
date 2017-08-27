@@ -1,11 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Loader extends Component {
-    render() {
-        return (
-            <div className={'loader' + (this.props.className ? ' ' + this.props.className : '')} />
-        );
-    }
+export default function Loader({ className }){
+   return (
+      <div className={'loader' + (className ? ' ' + className : '')} />
+   );
 }
 
 Loader.propTypes = {

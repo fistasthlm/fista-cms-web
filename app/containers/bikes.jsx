@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BikeGrid from 'components/bikes/bike-grid';
 import { loadBikes } from 'actions/bike-actions';
