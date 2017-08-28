@@ -6,7 +6,7 @@ exports.config = {
    sourceMaps: true,
    overrides: {
       production: {
-         sourceMaps: true
+         sourceMaps: false
       }
    },
 

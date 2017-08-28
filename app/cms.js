@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRedirect } from 'react-router';
 import configureStore from './configure-store';
-import { getAuthToken, saveAuthTokenFromQueryString } from './utils/session';
+import { getAuthToken } from './utils/session';
 import Root from 'containers/root';
 import Home from 'containers/home';
 import Login from 'containers/login';
@@ -11,6 +11,7 @@ import AddBike from 'containers/add-bike';
 import Bikes from 'containers/bikes';
 import Bike from 'containers/bike';
 import EditBike from 'containers/edit-bike';
+
 function requireAuth(nextState, replace) {
    if (!getAuthToken()) {
       replace({ pathname: '/login' });
