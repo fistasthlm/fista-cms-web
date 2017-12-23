@@ -6,8 +6,8 @@ const instance = axios.create({
 });
 
 export function getApiUrl() {
-   return 'https://fista-cms-api.herokuapp.com/';
-   // return 'http://localhost:3000/';
+   // return 'https://fista-cms-api.herokuapp.com/';
+   return 'http://localhost:3000/';
 
 }
 
@@ -31,4 +31,8 @@ export function putJson(url, data) {
 
 export function postJson(url, data) {
    return instance.post(url, JSON.stringify(data), getJsonHeaders());
+}
+
+export function deleteJson(url) {
+    return instance.delete(url, getJsonHeaders());
 }

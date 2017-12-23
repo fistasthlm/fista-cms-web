@@ -1,3 +1,4 @@
+import { hashHistory } from "react-router";
 import { postJson, getJson, putJson } from 'utils/network';
 import { networkProgress } from 'actions';
 
@@ -41,6 +42,7 @@ export function addBike(data) {
       return postJson('/bike', data)
          .then(response => {
             dispatch(bikeAdded(response.data));
+            hashHistory.push('/bikes');
          })
          .catch(error => {
             console.log('Something went wrong', error);

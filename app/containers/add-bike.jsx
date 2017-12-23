@@ -4,40 +4,43 @@ import BikeForm from '../components/bike/bike-form';
 import { addBike } from 'actions/bike-actions';
 
 class AddBike extends Component {
-   constructor(props) {
-      super(props);
-   }
+    constructor(props) {
+        super(props);
 
-   saveBike(data) {
-      this.props.dispatch(addBike(data));
-   }
+        this.saveBike = this.saveBike.bind(this);
+    }
 
-   render() {
-      const user = this.props.userState.get('user');
-      return(
-         <div>
-            {
-               user &&
-               <div>
-                  <h3>New biek day</h3>
-                  <p>fira mit ein vätska</p>
-                  <BikeForm
-                     onSubmit={this.saveBike.bind(this)}
-                     user={user} />
-               </div>
+    saveBike(data) {
+        this.props.dispatch(addBike(data));
+    }
 
-            }
-         </div>
-      )
-   }
+    render() {
+        const user = this.props.userState.get('user');
+        return (
+            <div>
+                {
+                    user &&
+                        <div>
+                            <h3>New biek day</h3>
+                            <p>fira mit ein vätska</p>
+                            <BikeForm
+                                onSubmit={this.saveBike}
+                                user={user}/>
+                        </div>
+
+                }
+            </div>
+        )
+    }
 }
 
-function propProvider(reduxState, props) {
-   const { appState, userState } = reduxState;
+function propProvider(reduxState) {
+    const {appState, userState} = reduxState;
 
-   return {
-      appState,
-      userState
-   };
+    return {
+        appState,
+        userState
+    };
 }
+
 export default connect(propProvider)(AddBike);
