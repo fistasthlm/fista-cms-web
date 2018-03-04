@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- '9'
+cache:
+  directories:
+  - node_modules
+before_deploy:
+- npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: LEPB/MYtYNoKPN0C5tK/AkllegZ4KVQoKIWuNWsvWX+5WDEr8tI17FqiHRaQGTDB6nQMkrAqVurA3nrZv1iW0C+Iw1XI3hYvy4Ww7nV6av1ztAUCDujtW6SMCuzdr8oq23iLufamgfK6FbfdlVnvxCe/TjVIg+V9fOSyJEE+5sr2E/Cy45nr6H9uFetOIEuAmNpG75faj9aeg+lDEiGdjycXJHA4pxPHdvzjhYf2y8E0JtyYAM+9AR1iDO4so72OPc0gfpOVWeyqAKnpw6xK5zAiKKjIsIp7LtNECSjo3LXsx8uY8taDekhJv7H8vS8JWbXoKu0brbCovioVmF3NMN061nSL1skLYV9oBrmhzXymNMhzonr5EkfvkkTKgnL4tfO+YFRtxzsMYm+2lC2O4mCT/2S5NGOBFpmyDh6TC/89VtL0lU5VtNIpgT8lRVw8QXToNL/GW0C/H9m40kGR41aMNK4ET2zMuE9BI0mDNhTMEQZ/UWMk6r+gfe21cqyPx/mc1DQXuQR6wDmfnftATT9Kkocbcz8NDgdVr8XJqn58VMnthPJ8iIIak9hlsT6NXIXLZh/cc1rCQ60wlyZxgz2uSS8LONodKPZoFENxwr3cSLoOHbwPUZmRW96PJOVOZMwlDYokbtb1RaEBYDZY8FsotEZ0RzJQ3IGAIQWaF6o=
+  app: fista-pedalroom
+  skip_cleanup: true
+  on:
+    branch: master
+notifications:
+  email: false

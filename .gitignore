@@ -31,3 +31,9 @@ public/
 # WebStorm stuff
 .idea/
 .idea/vcs.xml
+
+package-lock.json
+
+
+# Test
+coverage

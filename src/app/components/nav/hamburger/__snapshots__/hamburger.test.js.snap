@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<div
+  className="hamburger-button"
+>
+  <button
+    className="toggle-button"
+    id="navbar-toggle-btn-left"
+    onClick={[MockFunction]}
+  >
+    <span
+      className="icon-bar"
+    />
+    <span
+      className="icon-bar"
+    />
+    <span
+      className="icon-bar"
+    />
+  </button>
+</div>
+`;

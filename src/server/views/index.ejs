@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <meta name="description"
+          content="Fistasthlm. Not a club, nor a gang. Just a group of drunks with a passion for bikes!">
+    <meta property="og:image" content="http://fistasthlm.com/assets/img/facebook-img.jpg" />
+    <title>FISTASTHLM internal</title>
+    <% styleSources.forEach(function(src) { %>
+    <link rel="stylesheet" href="<%= publicPath + src %>" type="text/css" media="screen" charset="utf-8" />
+    <% }) %>
+</head>
+<body>
+<div class="bg-overlay">
+    <div id="app"></div>
+</div>
+<% scriptSources.forEach(function(src) { %>
+<script src="<%= publicPath + src %>"></script>
+<% }) %>
+</body>
+</html>
