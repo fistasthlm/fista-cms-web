@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`Render should render links 1`] = `
+<div
+  className=""
+>
+  <div
+    className="menu-item"
+    key="0-/"
+  >
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="nav-item"
+      exact={true}
+      onClick={[MockFunction]}
+      to="/"
+    >
+      Home
+    </NavLink>
+  </div>
+  <div
+    className="menu-item"
+    key="1-/bikes"
+  >
+    <NavLink
+      activeClassName="active"
+      ariaCurrent="true"
+      className="nav-item"
+      exact={true}
+      onClick={[MockFunction]}
+      to="/bikes"
+    >
+      Bikes
+    </NavLink>
+  </div>
+  <div
+    className="menu-item"
+    key="0-undefined"
+  >
+    <div
+      className="nav-item"
+      onClick={[Function]}
+    >
+      Log out
+    </div>
+  </div>
+</div>
+`;

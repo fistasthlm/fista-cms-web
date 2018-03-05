@@ -30,5 +30,12 @@ exports[`Render should render links 1`] = `
   >
     Bikes
   </NavLink>
+  <div
+    className="nav-item"
+    key="0-Log out"
+    onClick={[MockFunction]}
+  >
+    Log out
+  </div>
 </div>
 `;
