@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import BikeForm from '../components/bike/bike-form';
+import { Redirect } from 'react-router-dom';
+import BikeForm from 'components/bike/bike-form';
 import { addBike } from 'actions/bike-actions';
 
-class AddBike extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+class AddBike extends PureComponent {
     saveBike(data) {
         this.props.dispatch(addBike(data));
     }
 
     render() {
         const user = this.props.userState.get('user');
+
+        if (!this.props.appState.get('authenticated')) {
+            return (
+                <Redirect
+                    to={{
+                        pathname: '/login',
+                        state: { from: this.props.location }
+                    }} />
+            );
+        }
+
         return (
             <div>
                 {
@@ -32,7 +40,7 @@ class AddBike extends Component {
 }
 
 function propProvider(reduxState) {
-    const {appState, userState} = reduxState;
+    const { appState, userState } = reduxState;
 
     return {
         appState,

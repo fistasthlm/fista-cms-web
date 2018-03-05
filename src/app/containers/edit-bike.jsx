@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import BikeForm from '../components/bike/bike-form';
 import Loader from '../components/viewHelper/loader';
 import { loadBike, updateBike } from '../actions/bike-actions';
@@ -23,16 +24,26 @@ class EditBike extends Component {
         const user = this.props.userState.get('user');
         const bike = this.props.bikeState.get('bike');
 
+        if (!this.props.appState.get('authenticated')) {
+            return (
+                <Redirect
+                    to={{
+                        pathname: '/login',
+                        state: {from: this.props.location}
+                    }} />
+            );
+        }
+
         return (
             <div>
                 {
                     user && bike && bike.size > 0 ?
-                        <div>
-                            <h1>Edit {bike.get('title')}</h1>
-                            <BikeForm onSubmit={this.saveBike.bind(this)} user={user} bike={bike} />
-                        </div>
+                            <div>
+                                <h1>Edit {bike.get('title')}</h1>
+                                <BikeForm onSubmit={this.saveBike.bind(this)} user={user} bike={bike} />
+                            </div>
                         :
-                        <Loader />
+                            <Loader />
                 }
             </div>
         );

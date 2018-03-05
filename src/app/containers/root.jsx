@@ -13,7 +13,7 @@ import { getAuthToken } from 'utils/session';
 class Root extends Component {
     requireAuth(nextState, replace) {
         if (!getAuthToken()) {
-            replace({pathname: '/login'});
+            window.location = '/login';
         }
     }
 

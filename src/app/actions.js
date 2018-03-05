@@ -1,5 +1,6 @@
 import { postJson } from './utils/network';
 import { saveAuthToken, removeAuthToken } from './utils/session';
+import history from 'utils/history';
 
 export const RESET = 'RESET';
 export const NETWORK = 'NETWORK';
@@ -78,6 +79,8 @@ export function authenticate(data, onUnauthorized) {
                 saveAuthToken(data.password);
                 dispatch(authenticated(true, response.data));
                 dispatch(resetNetwork());
+                console.log('pong');
+                history.push('/');
             })
             .catch(error => {
                 if (error.status === 401) {

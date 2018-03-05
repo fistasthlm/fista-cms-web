@@ -4,12 +4,6 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
 export default class MobileNavbar extends PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.executeAction = this.executeAction.bind(this);
-    }
-
     executeAction(action) {
         action();
         this.props.toggleMenu();
@@ -45,7 +39,7 @@ export default class MobileNavbar extends PureComponent {
                                 className="menu-item">
                                 <div
                                     className="nav-item"
-                                    onClick={this.executeAction(action.get('action'))}>
+                                    onClick={() => this.executeAction(action.get('action'))}>
                                     {action.get('name')}
                                 </div>
                             </div>

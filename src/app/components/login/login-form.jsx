@@ -45,30 +45,29 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-            <div className="login-form">
-                <form className="login-box" onSubmit={(event) => this.login(event)}>
-                    <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input type="text"
-                               id="username"
-                               name="username"
-                               className="form-control"
-                               onChange={(e) => this.handleUsername(e)}
-                               placeholder="Username" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password"
-                               id="password"
-                               name="password"
-                               className="form-control"
-                               onChange={(e) => this.handlePassword(e)}
-                               placeholder="Password" />
-                    </div>
-
-                    <button type="submit" className="btn">Login</button>
-                </form>
-            </div>
+            <form
+                className="login-form"
+                onSubmit={(event) => this.login(event)}>
+                <div className="login-form__form-group">
+                    <input type="text"
+                           name="username"
+                           className="login-form__input"
+                           onChange={(e) => this.handleUsername(e)}
+                           placeholder="Username" />
+                </div>
+                <div className="login-form__form-group">
+                    <input type="password"
+                           name="password"
+                           className="login-form__input"
+                           onChange={(e) => this.handlePassword(e)}
+                           placeholder="Password" />
+                </div>
+                <button
+                    type="submit"
+                    className="login-form__submit">
+                    Login
+                </button>
+            </form>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import BikeGrid from 'components/bikes/bike-grid';
 import { loadBikes } from 'actions/bike-actions';
 
@@ -24,6 +25,16 @@ class Bikes extends Component {
     }
 
     render() {
+        if (!this.props.appState.get('authenticated')) {
+            return (
+                <Redirect
+                    to={{
+                        pathname: '/login',
+                        state: {from: this.props.location}
+                    }} />
+            );
+        }
+
         const bikes = this.props.bikeState.get('bikes');
 
         return (

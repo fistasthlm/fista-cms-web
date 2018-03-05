@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
-   render() {
-      return(
-         <div>
+    render() {
+        if (!this.props.appState.get('authenticated')) {
+            return (
+                <Redirect
+                    to={{
+                        pathname: '/login',
+                        state: {from: this.props.location}
+                    }} />
+            );
+        }
 
-         </div>
-      );
-   }
+        return (
+            <div style={{textAlign: 'center', fontSize: '40px', marginTop: '45px'}}>
+                👋🏻
+            </div>
+        );
+    }
 }
 
 function propProvider(reduxState) {
-   const { appState, userState } = reduxState;
+    const { appState } = reduxState;
 
-   return {
-      appState,
-      userState
-   };
+    return {
+        appState
+    };
 }
+
 export default connect(propProvider)(Home);
 

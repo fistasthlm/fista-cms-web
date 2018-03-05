@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Loader from '../components/viewHelper/loader';
 import BikeInfo from '../components/bikes/bike-info';
 import { loadBike, clearBike } from '../actions/bike-actions';
@@ -20,7 +21,16 @@ class Bike extends PureComponent {
    }
 
    render() {
-      const { bikeState } = this.props;
+      const { bikeState, appState } = this.props;
+       if (!appState.get('authenticated')) {
+           return (
+               <Redirect
+                   to={{
+                       pathname: '/login',
+                       state: {from: this.props.location}
+                   }} />
+           );
+       }
       const bike = bikeState.get('bike');
 
       return (

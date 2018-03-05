@@ -5,6 +5,7 @@ import DesktopNavbar from 'components/nav/desktopNavbar/desktop-navbar';
 import MobileNavbar from 'components/nav/mobileNavbar/mobile-navbar';
 import Hamburger from 'components/nav/hamburger/hamburger';
 import Image from 'components/viewHelper/image/image';
+import { isMobile } from 'utils/device';
 
 class Navbar extends PureComponent {
     constructor(props) {
@@ -79,16 +80,25 @@ class Navbar extends PureComponent {
                             width="200"
                             height="80" />
                     </NavLink>
+                    <span style={{marginLeft: '10px'}}>
+                        garaget
+                    </span>
                 </div>
                 <div className="right-div">
                     <Hamburger toggleMenu={this.toggleMenu} />
                 </div>
-                <DesktopNavbar
-                    options={options} />
-                <MobileNavbar
-                    hamburgerMenuStyle={this.hamburgerMenuStyle()}
-                    options={options}
-                    toggleMenu={this.toggleMenu} />
+
+                {
+                    isMobile() ?
+                        <MobileNavbar
+                            hamburgerMenuStyle={this.hamburgerMenuStyle()}
+                            options={options}
+                            toggleMenu={this.toggleMenu} />
+                    :
+
+                        <DesktopNavbar
+                            options={options} />
+                }
             </div>
         );
     }
