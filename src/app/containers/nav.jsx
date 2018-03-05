@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Navbar from 'components/nav/navbar';
 import { logout } from '../actions';
 
@@ -35,4 +36,4 @@ function propProvider(state) {
     };
 }
 
-export default connect(propProvider)(Nav);
+export default withRouter(connect(propProvider)(Nav));
