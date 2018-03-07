@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<input
+  className="add-bike-input "
+  onChange={[MockFunction]}
+  placeholder=""
+  type=""
+  value=""
+/>
+`;

@@ -26,8 +26,8 @@ class AddBike extends PureComponent {
             <div>
                 {
                     user &&
-                        <div>
-                            <h3>New biek day</h3>
+                        <div className="add-bike">
+                            <h1>New biek day</h1>
                             <p>fira mit ein vätska</p>
                             <BikeForm
                                 onSubmit={this.saveBike.bind(this)}

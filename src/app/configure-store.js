@@ -3,7 +3,8 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
 
 const createStoreWithMiddleware = compose(
-    applyMiddleware(thunkMiddleware)
+    applyMiddleware(thunkMiddleware),
+    window.devToolsExtension({ serialize: true })
 )(createStore);
 
 export default function configureStore() {
