@@ -17,10 +17,10 @@ function appState(state = fromJS({
         case NETWORK:
         case SUBSCRIPTION:
         case AUTHENTICATION:
-            return state.merge({authenticated: true});
+            return state.merge({ authenticated: true });
 
         case RESET:
-            return state.merge({authenticated: false});
+            return state.merge({ authenticated: false });
 
         default:
             return state;
@@ -33,7 +33,7 @@ function userState(state = fromJS({
     switch (action.type) {
         case AUTHENTICATION:
         case USER_LOADED:
-            return state.merge({user: action.user});
+            return state.merge({ user: action.user });
         default:
             return state;
     }
@@ -42,11 +42,11 @@ function userState(state = fromJS({
 function bikeState(state = fromJS({}), action = null) {
     switch (action.type) {
         case BikeActions.BIKES_LOADED:
-            return state.merge({bikes: action.bikes});
+            return state.merge({ bikes: action.bikes });
         case BikeActions.BIKE_LOADED:
-            return state.merge({bike: action.bike});
+            return state.merge({ bike: action.bike });
         case BikeActions.CLEAR_BIKE:
-            return state.merge({bike: {}});
+            return state.merge({ bike: {} });
         default:
             return state;
     }

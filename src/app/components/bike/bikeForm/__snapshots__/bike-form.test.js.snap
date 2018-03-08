@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<form
+  className="add-bike__form"
+  onSubmit={[Function]}
+>
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="title"
+    placeholder="Title for bike"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="frame"
+    placeholder="Frame"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="fork"
+    placeholder="Fork / Headset"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="cranks"
+    placeholder="Cranks / BB"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="pedals"
+    placeholder="Pedals"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="drivetrain"
+    placeholder="Drivetrain / Cog / Chainring / Chain"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="handlebars"
+    placeholder="Handlebars / Stem"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="saddle"
+    placeholder="Saddle / Seatpost"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="frontWheel"
+    placeholder="Front Wheel / Hub / Tire"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="rearWheel"
+    placeholder="Rear Wheel / Hub / Tire"
+    type="text"
+    value=""
+  />
+  <BikeInput
+    className="add-bike__input"
+    handleChange={[Function]}
+    name="instagram"
+    placeholder="Instagram"
+    type="text"
+    value="peteholmberg"
+  />
+  <div
+    className="add-bike__photos"
+  >
+    <t
+      apikey="A3BcPUqFURlSDHWjF3UG1z"
+      buttonClass="add-bike__add-photo"
+      buttonText="Add images"
+      cname={null}
+      file={null}
+      link={false}
+      mode="pick"
+      onError={[Function]}
+      onSuccess={[Function]}
+      options={
+        Object {
+          "accept": "image/*",
+          "fromSources": Array [
+            "local_file_system",
+          ],
+          "maxFiles": 5,
+          "storeTo": Object {
+            "location": "s3",
+          },
+        }
+      }
+      render={null}
+      security={null}
+    />
+  </div>
+  <button
+    className="add-bike__submit add-bike__submit--disabled"
+    type="submit"
+  >
+    Save bieeek
+  </button>
+</form>
+`;
