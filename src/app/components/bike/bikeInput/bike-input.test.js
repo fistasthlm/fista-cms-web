@@ -9,6 +9,7 @@ const setup = propOverrides => {
         placeholder: '',
         type: '',
         className: '',
+        name: '',
     }, propOverrides);
 
     const wrapper = shallow(<BikeInput {...props} />);
