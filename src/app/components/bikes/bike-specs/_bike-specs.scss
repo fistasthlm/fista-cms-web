@@ -1,0 +1,36 @@
+.bike-specs {
+    @include breakpoint(sm) {
+        width: 100%;
+    }
+
+    &__property-group {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+
+    &__property-group-item {
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 5px 10px;
+        margin-bottom: -1px;
+        border: 1px solid white;
+        text-transform: uppercase;
+
+        &:first-child {
+            border-top-right-radius: 0.25rem;
+            border-top-left-radius: 0.25rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            border-bottom-right-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+    }
+}
+

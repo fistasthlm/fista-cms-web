@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import update from 'react-addons-update';
 import ReactFilestack from 'filestack-react';
-import BikeInput from 'components/bike/bikeInput/bike-input';
+import BikeInput from 'components/bike/bike-input/bike-input';
 import history from 'utils/history';
 
 export default class BikeForm extends Component {

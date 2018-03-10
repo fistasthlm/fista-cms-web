@@ -5,7 +5,7 @@ import Nav from 'containers/nav';
 import Home from 'containers/home';
 import AddBike from 'containers/addBike/add-bike';
 import EditBike from 'containers/edit-bike';
-import Bikes from 'containers/bikes';
+import Bikes from 'containers/bikes/bikes';
 import Bike from 'containers/bike';
 import Login from 'containers/login';
 import { getAuthToken } from 'utils/session';

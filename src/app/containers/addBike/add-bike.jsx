@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import BikeForm from 'components/bike/bikeForm/bike-form';
+import BikeForm from 'components/bike/bike-form/bike-form';
 import { addBike } from 'actions/bike-actions';
 
 class AddBike extends PureComponent {

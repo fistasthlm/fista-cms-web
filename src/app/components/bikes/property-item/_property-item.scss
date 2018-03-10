@@ -1,0 +1,17 @@
+.property-item {
+    display: flex;
+    align-items: stretch;
+    min-height: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e4e6;
+
+    &__property {
+        font-size: 14px;
+        font-weight: 500;
+        width: 40%;
+    }
+
+    &__value {
+        font-size: 16px;
+    }
+}

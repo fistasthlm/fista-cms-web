@@ -39,7 +39,10 @@ function userState(state = fromJS({
     }
 }
 
-function bikeState(state = fromJS({}), action = null) {
+function bikeState(state = fromJS({
+    bikes: {},
+    bike: {}
+}), action = null) {
     switch (action.type) {
         case BikeActions.BIKES_LOADED:
             return state.merge({ bikes: action.bikes });

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import Loader from '../components/viewHelper/loader';
-import BikeInfo from '../components/bikes/bike-info';
-import { loadBike, clearBike } from '../actions/bike-actions';
+import Loader from 'components/viewHelper/loader';
+import BikeInfo from 'components/bikes/bike-info/bike-info';
+import { loadBike, clearBike } from 'actions/bike-actions';
 
 class Bike extends PureComponent {
    componentDidMount() {

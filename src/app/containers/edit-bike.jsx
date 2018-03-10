@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import BikeForm from '../components/bike/bikeForm/bike-form';
+import BikeForm from '../components/bike/bike-form/bike-form';
 import Loader from '../components/viewHelper/loader';
 import { loadBike, updateBike } from '../actions/bike-actions';
 
