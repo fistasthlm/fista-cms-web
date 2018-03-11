@@ -5,7 +5,7 @@ import { Map } from 'immutable';
 import InstagramLink from 'components/viewHelper/instagram-link';
 import Image from 'components/viewHelper/image/image';
 
-export default function BikeTile({bike}) {
+export default function BikeTile({ bike }) {
     const hasImage = bike.get('images').first();
 
     return (
@@ -14,12 +14,12 @@ export default function BikeTile({bike}) {
                 <div className="bike-tile__image">
                     {
                         hasImage &&
-                        <Image
-                            url={hasImage.get('url')}
-                            className="bike-tile__picture"
-                            resize={true}
-                            width="500"
-                            caption={bike.get('title')} />
+                            <Image
+                                url={hasImage.get('url')}
+                                className="bike-tile__picture"
+                                resize={true}
+                                width="500"
+                                caption={bike.get('title')} />
                     }
 
                 </div>
