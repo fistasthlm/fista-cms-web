@@ -6,7 +6,7 @@ import Home from 'containers/home';
 import AddBike from 'containers/addBike/add-bike';
 import EditBike from 'containers/edit-bike';
 import Bikes from 'containers/bikes/bikes';
-import Bike from 'containers/bike';
+import Bike from 'containers/bike/bike';
 import Login from 'containers/login';
 import { getAuthToken } from 'utils/session';
 import { loadUser } from '../actions/user-actions';

@@ -3,10 +3,6 @@ import { shallow } from 'enzyme';
 import { Map, List } from 'immutable';
 import Bikes from './bikes';
 
-jest.mock('react-redux', () => ({
-    connect: () => params => params,
-}));
-
 const setup = propOverrides => {
     const props = Object.assign({
         user: Map(),

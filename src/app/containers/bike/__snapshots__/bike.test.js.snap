@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render bike info if bike 1`] = `
+<div>
+  <h1>
+    Edit 
+    dolan
+  </h1>
+  <EditBikeForm
+    bike={
+      Immutable.Map {
+        "title": "dolan",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Render should render loader if empty bike 1`] = `<Loader />`;
+
+exports[`Render should render redirect if unauthenticated 1`] = `
+<Redirect
+  to={
+    Object {
+      "pathname": "/login",
+      "state": Object {
+        "from": undefined,
+      },
+    }
+  }
+/>
+`;

@@ -6,7 +6,7 @@ exports[`Render should render component 1`] = `
   name=""
   onChange={[MockFunction]}
   placeholder=""
-  type=""
+  type="text"
   value=""
 />
 `;

@@ -30,3 +30,17 @@ exports[`Render should render component 1`] = `
   className="add-bike"
 />
 `;
+
+exports[`Render should render redirect if not authenticated 1`] = `
+<Redirect
+  push={false}
+  to={
+    Object {
+      "pathname": "/login",
+      "state": Object {
+        "from": undefined,
+      },
+    }
+  }
+/>
+`;
