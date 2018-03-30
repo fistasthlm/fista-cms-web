@@ -2,28 +2,12 @@
 
 exports[`Render should render component 1`] = `
 <form
-  className="edit-bike"
+  className="edit-bike__form"
 >
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="0-title"
-    name="title"
-    placeholder="title"
-    value="dolan"
-  />
-  <BikeInput
-    className="edit-bike__input"
-    handleChange={[Function]}
-    key="1-frame"
-    name="frame"
-    placeholder="frame"
-    value="dolan"
-  />
-  <BikeInput
-    className="edit-bike__input"
-    handleChange={[Function]}
-    key="2-fork"
+    key="0-fork"
     name="fork"
     placeholder="fork"
     value="alpina"
@@ -31,7 +15,7 @@ exports[`Render should render component 1`] = `
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="3-cranks"
+    key="1-cranks"
     name="cranks"
     placeholder="cranks"
     value="dura ace"
@@ -39,31 +23,7 @@ exports[`Render should render component 1`] = `
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="4-pedals"
-    name="pedals"
-    placeholder="pedals"
-    value="time"
-  />
-  <BikeInput
-    className="edit-bike__input"
-    handleChange={[Function]}
-    key="5-drivetrain"
-    name="drivetrain"
-    placeholder="drivetrain"
-    value="kmc"
-  />
-  <BikeInput
-    className="edit-bike__input"
-    handleChange={[Function]}
-    key="6-handlebars"
-    name="handlebars"
-    placeholder="handlebars"
-    value="easton"
-  />
-  <BikeInput
-    className="edit-bike__input"
-    handleChange={[Function]}
-    key="7-saddle"
+    key="2-saddle"
     name="saddle"
     placeholder="saddle"
     value="slr"
@@ -71,7 +31,23 @@ exports[`Render should render component 1`] = `
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="8-frontWheel"
+    key="3-handlebars"
+    name="handlebars"
+    placeholder="handlebars"
+    value="easton"
+  />
+  <BikeInput
+    className="edit-bike__input"
+    handleChange={[Function]}
+    key="4-frame"
+    name="frame"
+    placeholder="frame"
+    value="dolan"
+  />
+  <BikeInput
+    className="edit-bike__input"
+    handleChange={[Function]}
+    key="5-frontWheel"
     name="frontWheel"
     placeholder="frontWheel"
     value="halo"
@@ -79,7 +55,15 @@ exports[`Render should render component 1`] = `
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="9-rearWheel"
+    key="6-instagram"
+    name="instagram"
+    placeholder="instagram"
+    value="fistasthlm"
+  />
+  <BikeInput
+    className="edit-bike__input"
+    handleChange={[Function]}
+    key="7-rearWheel"
     name="rearWheel"
     placeholder="rearWheel"
     value="halo"
@@ -87,10 +71,32 @@ exports[`Render should render component 1`] = `
   <BikeInput
     className="edit-bike__input"
     handleChange={[Function]}
-    key="11-instagram"
-    name="instagram"
-    placeholder="instagram"
-    value="fistasthlm"
+    key="8-title"
+    name="title"
+    placeholder="title"
+    value="dolan"
   />
+  <BikeInput
+    className="edit-bike__input"
+    handleChange={[Function]}
+    key="10-pedals"
+    name="pedals"
+    placeholder="pedals"
+    value="time"
+  />
+  <BikeInput
+    className="edit-bike__input"
+    handleChange={[Function]}
+    key="11-drivetrain"
+    name="drivetrain"
+    placeholder="drivetrain"
+    value="kmc"
+  />
+  <button
+    className="add-bike__submit add-bike__submit--disabled"
+    type="submit"
+  >
+    Save bieeek
+  </button>
 </form>
 `;

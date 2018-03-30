@@ -5,7 +5,7 @@
   ],
   "roots": ["src"],
   "modulePaths": ["src/app"],
-  "collectCoverageFrom" : ["src/**/*.jsx", "!src/server/mock/**"],
+  "collectCoverageFrom" : ["src/**/*", "!src/server/mock/**"],
   "moduleDirectories": ["node_modules"],
   "moduleNameMapper": {
     "\\.scss$": "<rootDir>/src/app/__mocks__/styleMock.js"
