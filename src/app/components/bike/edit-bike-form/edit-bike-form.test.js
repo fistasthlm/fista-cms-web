@@ -16,7 +16,7 @@ const setup = propOverrides => {
             saddle: 'slr',
             frontWheel: 'halo',
             rearWheel: 'halo',
-            images: [],
+            images: List(),
             instagram: 'fistasthlm',
         }),
         submit: jest.fn(),
@@ -73,6 +73,25 @@ describe('State', () => {
             const wrapper = setup();
 
             expect(wrapper.instance().formValid()).toEqual(false);
+        });
+    });
+
+    describe('hanlde image uploads', () => {
+        it('should add new image', () => {
+           const wrapper = setup();
+
+           const mockResult = {
+               filesUploaded: [
+                   {
+                       url: 'images/yolo.png',
+                       filename: 'yolo.png',
+                   },
+               ],
+           };
+
+           wrapper.instance().handleUploadImageResult(mockResult);
+
+           expect(wrapper.state().images.size === 1).toEqual(true);
         });
     });
 });

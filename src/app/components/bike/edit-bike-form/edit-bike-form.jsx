@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import { List, fromJS } from 'immutable';
 import ReactFilestack from 'filestack-react';
 import BikeInput from 'components/bike/bike-input/bike-input';
 import { isEquivalent } from 'utils/object/object';
+import update from 'react-addons-update';
 
 class EditBikeForm extends PureComponent {
     constructor(props) {
@@ -12,6 +14,7 @@ class EditBikeForm extends PureComponent {
         this.state = this.defaultState(props);
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleUploadImageResult = this.handleUploadImageResult.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -27,7 +30,7 @@ class EditBikeForm extends PureComponent {
             pedals: props.bike.get('pedals') || '',
             frontWheel: props.bike.get('frontWheel') || '',
             rearWheel: props.bike.get('rearWheel') || '',
-            images: props.bike.get('images') || [],
+            images: props.bike.get('images') || List(),
             instagram: props.bike.get('instagram') || '',
         };
     }
@@ -36,6 +39,26 @@ class EditBikeForm extends PureComponent {
         this.setState({
             [event.target.name]: event.target.value,
         });
+    }
+
+    handleUploadImageResult(result) {
+        if (result.filesUploaded.length > 0) {
+            const newImages = result.filesUploaded.map(file => {
+                return  {
+                    url: file.url,
+                    name: file.filename
+                };
+            });
+
+            const newImagesState = fromJS(update(this.state.images.toJS(), {
+                $push: newImages
+            }));
+
+
+            this.setState({
+                images: newImagesState,
+            });
+        }
     }
 
     handleSubmit(event) {
