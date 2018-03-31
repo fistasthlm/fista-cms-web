@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import Loader from 'components/viewHelper/loader';
 import EditBikeForm from '../../components/bike/edit-bike-form/edit-bike-form';
-import { loadBike, clearBike } from 'actions/bike-actions';
+import { loadBike, clearBike, updateBike } from 'actions/bike-actions';
 
 class Bike extends PureComponent {
     componentDidMount() {
@@ -19,6 +19,10 @@ class Bike extends PureComponent {
         if (id) {
             this.props.loadBike(id);
         }
+    }
+
+    submit(data) {
+        this.props.updateBike(data);
     }
 
     render() {
@@ -37,7 +41,10 @@ class Bike extends PureComponent {
             !bike.isEmpty() ?
                 <div className="edit-bike">
                     <h1>Edit {bike.get('title')}</h1>
-                    <EditBikeForm bike={bike} />
+                    <EditBikeForm
+                        bike={bike}
+                        submit={this.submit}
+                    />
                 </div>
                 :
                     <Loader />
@@ -57,5 +64,6 @@ function propProvider(state) {
 export default withRouter(connect(propProvider, {
     loadBike,
     clearBike,
+    updateBike,
 })(Bike));
 

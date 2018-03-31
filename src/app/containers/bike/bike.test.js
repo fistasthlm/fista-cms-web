@@ -14,6 +14,7 @@ const setup = propOverrides => {
         bike: Map(),
         clearBike: jest.fn(),
         loadBike: jest.fn(),
+        updateBike: jest.fn(),
         match: {
             params: {
                 id: 'hej'

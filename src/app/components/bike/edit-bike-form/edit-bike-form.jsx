@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import PropTypes from 'prop-types';
 import ReactFilestack from 'filestack-react';
 import BikeInput from 'components/bike/bike-input/bike-input';
 import { isEquivalent } from 'utils/object/object';
@@ -35,6 +37,14 @@ class EditBikeForm extends PureComponent {
         });
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+
+        if (this.formValid()) {
+            this.props.submit(this.state);
+        }
+    }
+
     formValid() {
         return !isEquivalent(this.defaultState(this.props), this.state);
     }
@@ -52,7 +62,9 @@ class EditBikeForm extends PureComponent {
         };
 
         return (
-            <form className="edit-bike__form">
+            <form
+                className="edit-bike__form"
+                onSubmit={this.handleSubmit}>
                 {
                     Object.entries(this.state).map((prop, index) => {
                         if (prop[0] !== 'images') {
@@ -103,5 +115,10 @@ class EditBikeForm extends PureComponent {
         );
     }
 }
+
+EditBikeForm.propTypes = {
+    bike: ImmutablePropTypes.map.isRequired,
+    submit: PropTypes.func.isRequired,
+};
 
 export default EditBikeForm;

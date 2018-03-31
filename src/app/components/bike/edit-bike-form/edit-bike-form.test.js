@@ -18,7 +18,8 @@ const setup = propOverrides => {
             rearWheel: 'halo',
             images: [],
             instagram: 'fistasthlm',
-        })
+        }),
+        submit: jest.fn(),
     }, propOverrides);
 
     return shallow(<EditBikeForm {...props} />);
@@ -47,6 +48,16 @@ describe('State', () => {
         wrapper.instance().handleChange(mockEvent);
 
         expect(wrapper.state().test).toEqual('testvalue');
+    });
+
+    it('should handle submit', () => {
+        const wrapper = setup();
+        const mockEvent = { preventDefault: jest.fn() };
+        wrapper.instance().setState({ title: 'dolan pre cursa' });
+
+        wrapper.instance().handleSubmit(mockEvent);
+
+        expect(wrapper.instance().props.submit).toHaveBeenCalled();
     });
 
     describe('form is valid', () => {
