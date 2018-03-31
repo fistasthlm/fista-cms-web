@@ -4,9 +4,13 @@ import rootReducer from './reducers';
 
 const createStoreWithMiddleware = compose(
     applyMiddleware(thunkMiddleware),
-    window.devToolsExtension({ serialize: true })
+    hasDevtools() ? window.devToolsExtension({ serialize: true }) : f => f
 )(createStore);
 
 export default function configureStore() {
     return createStoreWithMiddleware(rootReducer);
+}
+
+function hasDevtools() {
+    return (process.env.NODE_ENV !== 'production' && (typeof window.devToolsExtension !== 'undefined'));
 }
