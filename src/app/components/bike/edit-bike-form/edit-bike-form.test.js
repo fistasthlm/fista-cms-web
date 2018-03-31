@@ -91,7 +91,44 @@ describe('State', () => {
 
            wrapper.instance().handleUploadImageResult(mockResult);
 
-           expect(wrapper.state().images.size === 1).toEqual(true);
+           expect(wrapper.state().images.size).toEqual(1);
         });
+
+        it('should update images list', () => {
+            const wrapper = setup({
+                bike: Map({
+                    title: 'dolan',
+                    frame: 'dolan',
+                    fork: 'alpina',
+                    cranks: 'dura ace',
+                    pedals: 'time',
+                    drivetrain: 'kmc',
+                    handlebars: 'easton',
+                    saddle: 'slr',
+                    frontWheel: 'halo',
+                    rearWheel: 'halo',
+                    images: List([
+                        Map({
+                            url: '/images/yolo.png',
+                            name: 'yolo.png',
+                        })
+                    ]),
+                    instagram: 'fistasthlm',
+                }),
+            });
+
+            const mockResult = {
+                filesUploaded: [
+                    {
+                        url: '/images/yolo2.png',
+                        filename: 'yolo2.png',
+                    },
+                ],
+            };
+
+            wrapper.instance().handleUploadImageResult(mockResult);
+
+            expect(wrapper.state().images.size).toEqual(2);
+        })
     });
 });

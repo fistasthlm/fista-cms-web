@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import update from 'react-addons-update';
+import { List, fromJS } from 'immutable';
 import ReactFilestack from 'filestack-react';
 import BikeInput from 'components/bike/bike-input/bike-input';
-import history from 'utils/history';
 
 export default class BikeForm extends Component {
     constructor(props) {
@@ -20,7 +19,7 @@ export default class BikeForm extends Component {
             saddle: '',
             frontWheel: '',
             rearWheel: '',
-            images: [],
+            images: List(),
             instagram: props.user.get('instagram'),
         };
 
@@ -39,19 +38,17 @@ export default class BikeForm extends Component {
 
     handleUploadImageResult(result) {
         if (result.filesUploaded.length > 0) {
-            const newImages = result.filesUploaded.map(file => {
+            const newImages = fromJS(result.filesUploaded.map(file => {
                 return {
                     url: file.url,
                     name: file.filename
                 };
-            });
+            }));
 
-            const newImagesState = update(this.state.images, {
-                $push: newImages
-            });
-
-            this.setState({
-                images: newImagesState
+            this.setState(prevState => {
+                return {
+                    images: prevState.images.concat(newImages),
+                };
             });
         }
     }
@@ -61,7 +58,6 @@ export default class BikeForm extends Component {
 
         if (this.formValid()) {
             this.props.onSubmit(this.state);
-            history.push('/bikes');
         }
     }
 
@@ -170,9 +166,9 @@ export default class BikeForm extends Component {
                             {
                                 this.state.images.map(image => {
                                     return (
-                                        <img src={image.url}
-                                             alt={image.name}
-                                             key={image.name}
+                                        <img src={image.get('url')}
+                                             alt={image.get('name')}
+                                             key={image.get('name')}
                                              className="preview-image" />
                                     );
                                 })

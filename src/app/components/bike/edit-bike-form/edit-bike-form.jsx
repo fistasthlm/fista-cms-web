@@ -52,8 +52,8 @@ class EditBikeForm extends PureComponent {
 
             this.setState(prevState => {
                 return {
-                    images: prevState.images.merge(newImages),
-                }
+                    images: prevState.images.concat(newImages),
+                };
             });
         }
     }
