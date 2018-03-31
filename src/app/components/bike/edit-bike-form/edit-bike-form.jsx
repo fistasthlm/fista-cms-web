@@ -17,18 +17,18 @@ class EditBikeForm extends PureComponent {
 
     defaultState(props) {
         return {
-            fork: props.bike.get('fork') || '',
-            cranks: props.bike.get('cranks') || '',
-            saddle: props.bike.get('saddle') || '',
-            handlebars: props.bike.get('handlebars') || '',
-            frame: props.bike.get('frame') || '',
-            frontWheel: props.bike.get('frontWheel') || '',
-            instagram: props.bike.get('instagram') || '',
-            rearWheel: props.bike.get('rearWheel') || '',
             title: props.bike.get('title'),
-            images: props.bike.get('images') || [],
-            pedals: props.bike.get('pedals') || '',
+            frame: props.bike.get('frame') || '',
+            fork: props.bike.get('fork') || '',
+            handlebars: props.bike.get('handlebars') || '',
+            saddle: props.bike.get('saddle') || '',
+            cranks: props.bike.get('cranks') || '',
             drivetrain: props.bike.get('drivetrain') || '',
+            pedals: props.bike.get('pedals') || '',
+            frontWheel: props.bike.get('frontWheel') || '',
+            rearWheel: props.bike.get('rearWheel') || '',
+            images: props.bike.get('images') || [],
+            instagram: props.bike.get('instagram') || '',
         };
     }
 
