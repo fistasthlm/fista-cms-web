@@ -54,7 +54,9 @@ export default class LoginForm extends Component {
                            className="login-form__input"
                            onChange={(e) => this.handleUsername(e)}
                            placeholder="Username"
-                           autoCapitalize={false} />
+                           autoCapitalize={false}
+                           spellCheck={false}
+                    />
                 </div>
                 <div className="login-form__form-group">
                     <input type="password"
