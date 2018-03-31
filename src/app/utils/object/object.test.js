@@ -13,5 +13,5 @@ describe('object util', () => {
         const b = { foo: 'loo' };
 
         expect(isEquivalent(a, b)).toEqual(false);
-    })
+    });
 });
