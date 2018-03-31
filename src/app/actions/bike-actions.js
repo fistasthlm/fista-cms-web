@@ -42,6 +42,8 @@ export function addBike(data) {
         return postJson('/bike', data)
             .then(response => {
                 dispatch(bikeAdded(response.data));
+                dispatch(loadBikes(data.instagram));
+                history.push('/bikes');
             })
             .catch(error => {
                 console.log('Something went wrong', error);

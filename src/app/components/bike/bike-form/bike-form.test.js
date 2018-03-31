@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import BikeForm from './bike-form';
 
 jest.mock('utils/history', () => ({
@@ -55,10 +55,14 @@ describe('State', () => {
 
         wrapper.instance().handleUploadImageResult(mockEvent);
 
-        expect(wrapper.state().images).toEqual([{
-            url: 'hej.com',
-            name: 'dolan.png'
-        }]);
+        expect(wrapper.state().images).toEqual(fromJS(
+            [
+                {
+                    url: 'hej.com',
+                    name: 'dolan.png'
+                }
+            ]
+        ));
     });
 
     it('should submit', () => {
