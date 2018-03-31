@@ -1,0 +1,14 @@
+.bike-info {
+    color: white;
+    padding: 0 10px 20px;
+
+    &__instagram {
+        font-size: 14px;
+        display: block;
+        color: white;
+
+        @include breakpoint(sm) {
+            width: 70%;
+        }
+    }
+}

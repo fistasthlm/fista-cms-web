@@ -1,0 +1,125 @@
+.nav-content {
+    padding: 20px 10px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(md) {
+        padding: 30px 10px 10px 20px;
+    }
+
+    .left-div {
+        display: inline-block;
+        margin-left: 5px;
+
+        @include breakpoint(sm) {
+            width: 20%;
+        }
+
+        .logo {
+            width: 130px;
+            height: auto;
+        }
+    }
+
+    .right-div {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: 30px;
+
+        @include breakpoint(sm) {
+            display: none;
+        }
+
+        .hamburger-button {
+            @include breakpoint(sm) {
+                display: none;
+            }
+
+            .toggle-button {
+                border: none;
+                background-color: black;
+
+                .icon-bar {
+                    display: block;
+                    width: 30px;
+                    height: 4px;
+                    margin: 6px auto;
+                    background-color: white !important;
+                    border-radius: 1px;
+                    padding: 1px;
+                }
+            }
+
+            .toggle-button:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .hamburger-menu {
+        display: none;
+
+        &.open {
+            display: block;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            position: absolute;
+            right: 15px;
+            top: 60px;
+            z-index: 10;
+            padding: 10px;
+        }
+
+        a {
+            text-transform: uppercase;
+            color: white;
+        }
+    }
+
+    .navbar {
+        display: none;
+
+        @include breakpoint(sm) {
+            display: inline-flex;
+            overflow: auto;
+            padding-top: 5px;
+            margin-left: auto;
+            margin-right: 50px;
+        }
+    }
+
+    .menu-item {
+        margin: 20px 0;
+    }
+
+    .nav-item {
+        font-weight: 400;
+        text-transform: uppercase;
+        color: white;
+        font-size: 16px;
+        padding: 5px;
+        margin: 0 10px;
+        cursor: pointer;
+
+        @include breakpoint(sm) {
+            font-size: 20px;
+        }
+
+        @include breakpoint(md) {
+            padding: 10px;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+
+        &.active {
+            background-color: white;
+            color: black;
+            pointer-events: none;
+        }
+    }
+}

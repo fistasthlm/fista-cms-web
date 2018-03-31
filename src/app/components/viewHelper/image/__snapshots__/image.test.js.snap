@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<img
+  alt=""
+  src="https//placekitten.com/500/500"
+/>
+`;

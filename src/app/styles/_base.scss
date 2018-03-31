@@ -1,0 +1,73 @@
+body {
+    margin: 0 0 0 0;
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    letter-spacing: 0.02em;
+    color: white;
+    line-height: 1;
+    font-size: 14px;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-overlay {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+
+    @include breakpoint(md) {
+        background: url(https://cdn.filestackcontent.com/Ud91WG07QfOBBxpEVmm9) no-repeat center center;
+    }
+}
+
+.content-container {
+    margin: 0 auto;
+    background: black;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    @include breakpoint(md) {
+        max-width: 992px;
+    }
+}
+
+.divider {
+    border-top: 1px white solid;
+    width: 100%;
+}
+
+.page-content {
+    padding: 10px 0;
+}
+
+a {
+    text-decoration: none;
+
+    :hover {
+        text-decoration: none;
+    }
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+a:hover, :focus {
+    text-decoration: none;
+}
+
+input {
+
+}

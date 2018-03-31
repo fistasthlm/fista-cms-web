@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<div
+  className="bike-tile"
+>
+  <Link
+    replace={false}
+    to="/bike/undefined"
+  >
+    <div
+      className="bike-tile__image"
+    />
+    <h2
+      className="bike-tile__title ellipsis"
+    />
+  </Link>
+  <InstagramLink
+    className="bike-tile__instagram-link"
+    handle="pete"
+  />
+</div>
+`;

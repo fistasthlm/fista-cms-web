@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render component 1`] = `
+<div
+  className="bike-grid"
+/>
+`;
+
+exports[`Render should render grid 1`] = `
+<div
+  className="bike-grid"
+>
+  <BikeTile
+    bike={
+      Immutable.Map {
+        "_id": "yolo",
+        "title": "dolan",
+      }
+    }
+    key="yolo"
+  />
+</div>
+`;

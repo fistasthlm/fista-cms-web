@@ -1,0 +1,44 @@
+.bike-photos {
+    margin-top: 20px;
+
+    &__big-picture {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        vertical-align: top;
+
+        @include breakpoint(md) {
+            width: 75%;
+        }
+
+        &--thumbnails {
+            width: calc(100% - 70px);
+
+            @include breakpoint(sm) {
+                width: calc(100% - 130px);
+            }
+        }
+    }
+
+    &__image-thumbnails {
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    &__thumbnail {
+        margin: 5px 0;
+        width: 60px;
+
+        &:first-child {
+            margin: 0 0 0 5px;
+        }
+
+        &:last-child {
+            margin: 5px 0 0 0;
+        }
+
+        @include breakpoint(sm) {
+            width: 120px;
+        }
+    }
+}
