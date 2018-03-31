@@ -12,6 +12,7 @@ class EditBikeForm extends PureComponent {
         this.state = this.defaultState(props);
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     defaultState(props) {
@@ -41,7 +42,10 @@ class EditBikeForm extends PureComponent {
         event.preventDefault();
 
         if (this.formValid()) {
-            this.props.submit(this.state);
+            this.props.submit({
+                id: this.props.bike.get('_id'),
+                ...this.state
+            });
         }
     }
 
@@ -51,7 +55,6 @@ class EditBikeForm extends PureComponent {
 
     render() {
         const submitClass = this.formValid() ? 'add-bike__submit' : 'add-bike__submit add-bike__submit--disabled';
-
         const options = {
             accept: 'image/*',
             maxFiles: 5,

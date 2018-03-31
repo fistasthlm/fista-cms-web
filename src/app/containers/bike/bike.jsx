@@ -2,10 +2,16 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import Loader from 'components/viewHelper/loader';
-import EditBikeForm from '../../components/bike/edit-bike-form/edit-bike-form';
+import EditBikeForm from 'components/bike/edit-bike-form/edit-bike-form';
 import { loadBike, clearBike, updateBike } from 'actions/bike-actions';
 
 class Bike extends PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.submit = this.submit.bind(this);
+    }
+
     componentDidMount() {
         this.loadBike();
     }
