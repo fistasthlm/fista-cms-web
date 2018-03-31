@@ -43,20 +43,17 @@ class EditBikeForm extends PureComponent {
 
     handleUploadImageResult(result) {
         if (result.filesUploaded.length > 0) {
-            const newImages = result.filesUploaded.map(file => {
+            const newImages = fromJS(result.filesUploaded.map(file => {
                 return  {
                     url: file.url,
                     name: file.filename
                 };
-            });
-
-            const newImagesState = fromJS(update(this.state.images.toJS(), {
-                $push: newImages
             }));
 
-
-            this.setState({
-                images: newImagesState,
+            this.setState(prevState => {
+                return {
+                    images: prevState.images.merge(newImages),
+                }
             });
         }
     }
