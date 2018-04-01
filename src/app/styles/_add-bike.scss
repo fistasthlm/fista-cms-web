@@ -7,7 +7,7 @@
 
     &__form {
         @include breakpoint(md) {
-            margin: 0 auto;
+            margin: 30px auto 0;
             max-width: 700px;
         }
     }

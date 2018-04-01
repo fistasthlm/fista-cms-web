@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { fromJS } from 'immutable';
 import { isAuthenticated } from './utils/session';
-import { AUTHENTICATION, NETWORK, SUBSCRIPTION, RESET } from 'actions';
-import { USER_LOADED } from './actions/user-actions';
+import * as AppActions from 'actions';
+import * as UserActions from './actions/user-actions';
 import * as BikeActions from './actions/bike-actions';
 
 
@@ -14,12 +14,13 @@ function appState(state = fromJS({
     showNavigation: true
 }), action = null) {
     switch (action.type) {
-        case NETWORK:
-        case SUBSCRIPTION:
-        case AUTHENTICATION:
+        case AppActions.NETWORK_PROGRESS:
+            return state.merge(action.state);
+
+        case AppActions.AUTHENTICATION:
             return state.merge({ authenticated: true });
 
-        case RESET:
+        case AppActions.RESET:
             return state.merge({ authenticated: false });
 
         default:
@@ -31,8 +32,8 @@ function userState(state = fromJS({
     user: {}
 }), action = null) {
     switch (action.type) {
-        case AUTHENTICATION:
-        case USER_LOADED:
+        case AppActions.AUTHENTICATION:
+        case UserActions.USER_LOADED:
             return state.merge({ user: action.user });
         default:
             return state;

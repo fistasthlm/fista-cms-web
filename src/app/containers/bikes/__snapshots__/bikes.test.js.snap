@@ -12,7 +12,9 @@ exports[`Render should render component 1`] = `
 />
 `;
 
-exports[`Render should render loader if no bikes 1`] = `<Loader />`;
+exports[`Render should render loader if network progress 1`] = `<Loader />`;
+
+exports[`Render should render no bikes 1`] = `<NoBikes />`;
 
 exports[`Render should render redirect when not authenticated 1`] = `
 <Redirect
@@ -20,9 +22,6 @@ exports[`Render should render redirect when not authenticated 1`] = `
   to={
     Object {
       "pathname": "/login",
-      "state": Object {
-        "from": undefined,
-      },
     }
   }
 />

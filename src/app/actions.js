@@ -3,7 +3,7 @@ import { saveAuthToken, removeAuthToken } from './utils/session';
 import history from 'utils/history';
 
 export const RESET = 'RESET';
-export const NETWORK = 'NETWORK';
+export const NETWORK_PROGRESS = 'NETWORK_PROGRESS';
 export const SUBSCRIPTION = 'SUBSCRIPTION';
 export const AUTHENTICATION = 'AUTHENTICATION';
 
@@ -19,7 +19,7 @@ function authenticated(state, user) {
 
 export function networkProgress() {
     return {
-        type: NETWORK,
+        type: NETWORK_PROGRESS,
         state: {
             networkProgress: true,
             networkFailed: false
@@ -32,7 +32,7 @@ export function networkFailed(error) {
         removeAuthToken();
 
         return {
-            type: NETWORK,
+            type: NETWORK_PROGRESS,
             state: {
                 networkProgress: false,
                 subscriptionProgress: false,
@@ -43,7 +43,7 @@ export function networkFailed(error) {
     }
 
     return {
-        type: NETWORK,
+        type: NETWORK_PROGRESS,
         state: {
             networkProgress: false,
             subscriptionProgress: false,
@@ -54,7 +54,7 @@ export function networkFailed(error) {
 
 export function resetNetwork() {
     return {
-        type: NETWORK,
+        type: NETWORK_PROGRESS,
         state: {
             networkProgress: false,
             subscriptionProgress: false,

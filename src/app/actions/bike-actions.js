@@ -1,6 +1,6 @@
 import { postJson, getJson, putJson } from 'utils/network';
 import history from 'utils/history';
-import { networkProgress } from 'actions';
+import { networkProgress, resetNetwork } from 'actions';
 
 export const BIKE_ADDED = 'BIKE_ADDED';
 export const BIKES_LOADED = 'BIKES_LOADED';
@@ -56,9 +56,11 @@ export function loadBikes(handle) {
         dispath(networkProgress());
         return getJson('/bikes/' + handle)
             .then(response => {
+                dispath(resetNetwork());
                 dispath(bikesLoaded(response.data));
             })
             .catch(error => {
+                dispath(resetNetwork());
                 console.log('Something went wrong', error);
             });
     };

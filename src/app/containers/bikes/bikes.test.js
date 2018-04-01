@@ -8,26 +8,23 @@ const setup = propOverrides => {
         user: Map(),
         bikes: List(),
         authenticated: false,
+        networkProgress: false,
         loadBikes: jest.fn(),
+        clearBike: jest.fn(),
     }, propOverrides);
 
-    const wrapper = shallow(<Bikes {...props} />);
-
-    return {
-        props,
-        wrapper
-    };
+    return shallow(<Bikes {...props} />);
 };
 
 describe('Render', () => {
     it('should render redirect when not authenticated', () => {
-        const { wrapper } = setup();
+        const wrapper = setup();
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('should render component', () => {
-        const { wrapper } = setup({
+        const wrapper = setup({
             authenticated: true,
             bikes: List([
                 Map({
@@ -39,8 +36,17 @@ describe('Render', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render loader if no bikes', () => {
-        const { wrapper } = setup({
+    it('should render loader if network progress', () => {
+        const wrapper = setup({
+            authenticated: true,
+            networkProgress: true,
+        });
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render no bikes', () => {
+        const wrapper = setup({
             authenticated: true,
         });
 
@@ -48,47 +54,28 @@ describe('Render', () => {
     });
 });
 
-describe('State', () => {
-    it('should get bikes', () => {
-        const { wrapper, props } = setup({
-            user: Map({
-                instagram: 'pete'
-            }),
-        });
-
-        wrapper.instance().getBikes(props);
-
-        expect(wrapper.instance().props.loadBikes).toHaveBeenCalled();
-    });
-});
-
-
 describe('Life cycle', () => {
-    describe('component will receive props', () => {
-        it('should load bikes if new props', () => {
-            const { wrapper } = setup({
-                bikes: List([
-                    Map({
-                        title: 'dolan'
-                    }),
-                ]),
+    describe('component did mount', () => {
+        it('should load bikes', () => {
+            const wrapper = setup({
                 user: Map({
-                    instagram: 'pete'
-                }),
+                    instagram: 'test',
+                })
             });
 
-            const { props } = setup({
-                bikes: List(),
-                user: Map({
-                    instagram: 'pete'
-                }),
-            });
+            wrapper.instance().componentDidMount();
 
-            wrapper.instance().getBikes = jest.fn();
+            expect(wrapper.instance().props.loadBikes).toHaveBeenCalledWith('test');
+        });
+    });
 
-            wrapper.instance().componentWillReceiveProps(props);
+    describe('component will unmount', () => {
+        it('should clear bike', () => {
+            const wrapper = setup();
 
-            expect(wrapper.instance().getBikes).toHaveBeenCalled();
+            wrapper.instance().componentWillUnmount();
+
+            expect(wrapper.instance().props.clearBike).toHaveBeenCalled();
         });
     });
 });

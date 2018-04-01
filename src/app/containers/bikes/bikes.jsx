@@ -2,47 +2,41 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import BikeGrid from 'components/bikes/bike-grid/bike-grid';
+import NoBikes from 'components/bikes/no-bikes/no-bikes';
 import Loader from 'components/viewHelper/loader';
-import { loadBikes } from 'actions/bike-actions';
+import { loadBikes, clearBike } from 'actions/bike-actions';
 
 class Bikes extends Component {
     componentDidMount() {
-        this.getBikes(this.props);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props !== nextProps) {
-            this.getBikes(nextProps);
-        }
-    }
-
-    getBikes(props) {
-        const { bikes, user } = props;
+        const { bikes, user } = this.props;
 
         if (!user.isEmpty() && bikes.isEmpty()) {
-            props.loadBikes(user.get('instagram'));
+            this.props.loadBikes(user.get('instagram'));
         }
     }
 
-    redirectToLogin() {
-        const to = {
-            pathname: '/login',
-            state: { from: this.props.location }
-        };
-
-        return (
-            <Redirect to={to} />
-        );
+    componentWillUnmount() {
+        this.props.clearBike();
     }
 
     render() {
-        const { authenticated, bikes } = this.props;
+        const { authenticated, bikes, networkProgress } = this.props;
         if (!authenticated) {
-            return this.redirectToLogin();
+            return (
+                <Redirect to={{ pathname: '/login' }} />
+            );
+        }
+
+        if (networkProgress) {
+            return (
+                <Loader />
+            );
         }
 
         if (bikes.isEmpty()) {
-            return <Loader />;
+            return (
+                <NoBikes />
+            );
         }
         else {
             return (
@@ -58,10 +52,12 @@ function propProvider(reduxState) {
     return {
         authenticated: appState.get('authenticated'),
         bikes: bikeState.get('bikes'),
-        user: userState.get('user')
+        user: userState.get('user'),
+        networkProgress: appState.get('networkProgress'),
     };
 }
 
 export default connect(propProvider, {
-    loadBikes
+    loadBikes,
+    clearBike,
 })(Bikes);
