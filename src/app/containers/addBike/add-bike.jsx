@@ -35,7 +35,7 @@ class AddBike extends PureComponent {
                         <div>
                             <h1>New biek day</h1>
                             <p className="add-bike__preamble">
-                                fira mit ein vätska! En titel och minst en bild krävs för att få spara
+                                fira mit ein vätska! En titel och minst en bild är kravet.
                             </p>
                             <BikeForm
                                 onSubmit={this.saveBike}

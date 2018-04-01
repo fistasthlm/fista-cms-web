@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render should render components 1`] = `
+<div
+  className="no-bikes"
+>
+  <h1>
+    No bikes
+  </h1>
+  <span>
+    add one for samlags  skull
+  </span>
+  <Link
+    className="no-bikes__link"
+    replace={false}
+    to={
+      Object {
+        "pathname": "/add",
+      }
+    }
+  >
+    Add bieek
+  </Link>
+</div>
+`;
