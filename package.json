@@ -16,17 +16,17 @@
     "fix": "eslint --fix src/.; exit 0"
   },
   "engines": {
-    "node": "9.x",
-    "npm": "5.x"
+    "node": "10.x",
+    "npm": "6.x"
   },
   "dependencies": {
     "autoprefixer": "~9.1.5",
     "axios": "~0.18.0",
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.13.2",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.2",
+    "babel-loader": "^7.1.5",
     "babel-plugin-dynamic-import-node": "^2.1.0",
     "babel-plugin-react-transform": "~3.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -50,7 +50,6 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-react": "~7.11.1",
     "express": "^4.16.3",
-    "extract-text-webpack-plugin": "^3.0.2",
     "filestack-js": "^1.5.1",
     "filestack-react": "^2.0.0",
     "heroku-ssl-redirect": "0.0.4",
@@ -58,6 +57,7 @@
     "ignore-loader": "^0.1.2",
     "immutable": "^3.8.1",
     "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.8.3",
     "nodemon": "^1.17.2",
     "npm": "^6.4.1",
@@ -80,6 +80,7 @@
     "style-loader": "^0.23.0",
     "webpack": "~4.18.0",
     "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.3.0",
     "webpack-dev-server": "^3.1.8",
     "webpack-hot-middleware": "~2.23.1",
