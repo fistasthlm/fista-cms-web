@@ -1,107 +1,107 @@
-import React, { PureComponent } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
-import { Map, List } from 'immutable';
-import DesktopNavbar from 'components/nav/desktopNavbar/desktop-navbar';
-import MobileNavbar from 'components/nav/mobileNavbar/mobile-navbar';
-import Hamburger from 'components/nav/hamburger/hamburger';
-import Image from 'components/viewHelper/image/image';
-import { isMobile } from 'utils/device';
+import React, { PureComponent } from 'react'
+import { NavLink, withRouter } from 'react-router-dom'
+import { Map, List } from 'immutable'
+import DesktopNavbar from 'components/nav/desktopNavbar/desktop-navbar'
+import MobileNavbar from 'components/nav/mobileNavbar/mobile-navbar'
+import Hamburger from 'components/nav/hamburger/hamburger'
+import Image from 'components/viewHelper/image/image'
+import { isMobile } from 'utils/device'
 
 class Navbar extends PureComponent {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props)
 
-        this.state = {
-            menuToggled: false
-        };
-
-        this.toggleMenu = this.toggleMenu.bind(this);
-        this.closeHamburgerMenu = this.closeHamburgerMenu.bind(this);
+    this.state = {
+      menuToggled: false
     }
 
-    toggleMenu() {
-        this.setState((prevState) => {
-            return {
-                menuToggled: !prevState.menuToggled
-            };
-        });
-    }
+    this.toggleMenu = this.toggleMenu.bind(this)
+    this.closeHamburgerMenu = this.closeHamburgerMenu.bind(this)
+  }
 
-    closeHamburgerMenu() {
-        this.setState({
-            menuToggled: false
-        });
-    }
+  toggleMenu () {
+    this.setState((prevState) => {
+      return {
+        menuToggled: !prevState.menuToggled
+      }
+    })
+  }
 
-    hamburgerMenuStyle() {
-        return this.state.menuToggled ?
-                'hamburger-menu open'
-            :
-                'hamburger-menu';
-    }
+  closeHamburgerMenu () {
+    this.setState({
+      menuToggled: false
+    })
+  }
 
-    render() {
-        const logoUrl = 'https://images.contentful.com/' +
-            'x1j0zkbk3421/4wgAQ4qPFKIyyeoUImGYko/66256a7ec6c12ea8f8d1d88bbcafe6ea/fistasthlm-logotype.png';
+  hamburgerMenuStyle () {
+    return this.state.menuToggled ?
+      'hamburger-menu open'
+      :
+      'hamburger-menu'
+  }
 
-        const options = Map({
-            links: List([
-                Map({
-                    to: '/',
-                    route: 'Home',
-                }),
-                Map({
-                    to: '/add',
-                    route: 'Add new bike',
-                }),
-                Map({
-                    to: '/bikes',
-                    route: 'Bikes',
-                }),
-            ]),
-            actions: List([
-                Map({
-                    action: this.props.onLogOut,
-                    name: 'Log out',
-                }),
-            ]),
-        });
+  render () {
+    const logoUrl = 'https://images.contentful.com/' +
+      'x1j0zkbk3421/4wgAQ4qPFKIyyeoUImGYko/66256a7ec6c12ea8f8d1d88bbcafe6ea/fistasthlm-logotype.png'
 
-        return (
-            <div className="nav-content">
-                <div
-                    className="left-div"
-                    onClick={this.closeHamburgerMenu}>
-                    <NavLink to="/">
-                        <Image
-                            url={logoUrl}
-                            className="logo"
-                            resize={true}
-                            width="200"
-                            height="80" />
-                    </NavLink>
-                    <span style={{marginLeft: '10px'}}>
+    const options = Map({
+      links: List([
+        Map({
+          to: '/',
+          route: 'Home',
+        }),
+        Map({
+          to: '/add',
+          route: 'Add new bike',
+        }),
+        Map({
+          to: '/bikes',
+          route: 'Bikes',
+        }),
+      ]),
+      actions: List([
+        Map({
+          action: this.props.onLogOut,
+          name: 'Log out',
+        }),
+      ]),
+    })
+
+    return (
+      <div className="nav-content">
+        <div
+          className="left-div"
+          onClick={this.closeHamburgerMenu}>
+          <NavLink to="/">
+            <Image
+              url={logoUrl}
+              className="logo"
+              resize={true}
+              width="200"
+              height="80" />
+          </NavLink>
+          <span style={{marginLeft: '10px'}}>
                         garaget
                     </span>
-                </div>
-                <div className="right-div">
-                    <Hamburger toggleMenu={this.toggleMenu} />
-                </div>
+        </div>
+        <div className="right-div">
+          <Hamburger toggleMenu={this.toggleMenu} />
+        </div>
 
-                {
-                    isMobile() ?
-                        <MobileNavbar
-                            hamburgerMenuStyle={this.hamburgerMenuStyle()}
-                            options={options}
-                            toggleMenu={this.toggleMenu} />
-                    :
+        {
+          isMobile() ?
+            <MobileNavbar
+              hamburgerMenuStyle={this.hamburgerMenuStyle()}
+              options={options}
+              toggleMenu={this.toggleMenu} />
+            :
 
-                        <DesktopNavbar
-                            options={options} />
-                }
-            </div>
-        );
-    }
+            <DesktopNavbar
+              options={options} />
+        }
+      </div>
+    )
+  }
 }
 
-export default withRouter(Navbar);
+export default withRouter(Navbar)

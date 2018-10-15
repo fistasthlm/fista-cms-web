@@ -12,7 +12,7 @@ exports[`Render should render links 1`] = `
 >
   <NavLink
     activeClassName="active"
-    ariaCurrent="true"
+    aria-current="page"
     className="nav-item"
     exact={true}
     key="0-/"
@@ -22,7 +22,7 @@ exports[`Render should render links 1`] = `
   </NavLink>
   <NavLink
     activeClassName="active"
-    ariaCurrent="true"
+    aria-current="page"
     className="nav-item"
     exact={true}
     key="1-/bikes"
