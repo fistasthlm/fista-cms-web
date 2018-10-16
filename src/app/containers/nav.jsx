@@ -23,16 +23,16 @@ class Nav extends Component {
       return (
          <Navbar
              onLogOut={this.onLogOut}
-             authenticated={this.props.userState.get('authenticated')} />
+             authenticated={this.props.appState.get('authenticated')} />
       );
    }
 }
 
 function propProvider(state) {
-    const { userState } = state;
+    const { appState } = state;
 
     return {
-        userState
+        appState
     };
 }
 

@@ -12,6 +12,11 @@ exports[`Render should render bike info if bike 1`] = `
     bike={
       Immutable.Map {
         "title": "dolan",
+        "match": Object {
+          "params": Object {
+            "id": 123,
+          },
+        },
       }
     }
     submit={[Function]}
