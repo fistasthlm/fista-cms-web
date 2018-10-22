@@ -6,6 +6,7 @@ import MobileNavbar from 'components/nav/mobileNavbar/mobile-navbar'
 import Hamburger from 'components/nav/hamburger/hamburger'
 import Image from 'components/viewHelper/image/image'
 import { isMobile } from 'utils/device'
+import history from 'utils/history'
 
 class Navbar extends PureComponent {
   constructor (props) {
@@ -44,7 +45,7 @@ class Navbar extends PureComponent {
     const logoUrl = 'https://images.contentful.com/' +
       'x1j0zkbk3421/4wgAQ4qPFKIyyeoUImGYko/66256a7ec6c12ea8f8d1d88bbcafe6ea/fistasthlm-logotype.png'
 
-    const options = Map({
+    const authenticatedOptions = Map({
       links: List([
         Map({
           to: '/',
@@ -66,6 +67,18 @@ class Navbar extends PureComponent {
         }),
       ]),
     })
+
+    const notAuthenticatedOptions = Map({
+      links: List([]),
+      actions: List([
+        Map({
+          action: () => {history.push('/login')},
+          name: 'Login'
+        })
+      ])
+    })
+
+    const options = this.props.authenticated ? authenticatedOptions : notAuthenticatedOptions
 
     return (
       <div className="nav-content">
