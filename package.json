@@ -20,7 +20,7 @@
     "npm": "6.x"
   },
   "dependencies": {
-    "autoprefixer": "~9.2.0",
+    "autoprefixer": "~9.3.0",
     "axios": "~0.18.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.26.3",
