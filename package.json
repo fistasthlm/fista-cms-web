@@ -54,7 +54,7 @@
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
-    "nodemon": "^1.18.4",
+    "nodemon": "1.18.5",
     "npm": "^6.4.1",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.6.2",
