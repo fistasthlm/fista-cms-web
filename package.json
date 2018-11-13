@@ -60,7 +60,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.2",
     "react-addons-update": "^15.6.2",
-    "react-dom": "^16.5.2",
+    "react-dom": "^16.6.2",
     "react-hot-loader": "~4.3.11",
     "react-image-lightbox": "~5.0.0",
     "react-immutable-proptypes": "^2.1.0",
